@@ -8,7 +8,8 @@ module.exports = {
   output : {
     path: path.resolve(__dirname,'dist'),
     filename: 'bundle.js',
-    hashFunction: "xxhash64"
+    hashFunction: "xxhash64",
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -16,7 +17,7 @@ module.exports = {
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: {
-					loader: 'babel-loader'
+					loader: 'babel-loader',
 				}
 			},
 			{
@@ -28,16 +29,17 @@ module.exports = {
 				]
 			},
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(css|scss)$/,
         use: [
           "style-loader",
 					"css-loader",
 					"sass-loader",
         ]
-      }
+      },
 	
 		]
 	},
+  
   plugins: [
 		new HtmlWebpackPlugin({
 			template: './public/index.html',
@@ -51,6 +53,7 @@ module.exports = {
     static: path.join(__dirname,'dist'),
     compress: true,
     port: 3005,
+    historyApiFallback: true,
   }
  
 }
