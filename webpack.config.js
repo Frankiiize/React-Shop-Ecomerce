@@ -9,7 +9,7 @@ module.exports = {
     path: path.resolve(__dirname,'dist'),
     filename: 'bundle.js',
     hashFunction: "xxhash64",
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -35,6 +35,11 @@ module.exports = {
 					"css-loader",
 					"sass-loader",
         ]
+      },
+      {
+        test: /\.(png|jpeg|gif|svg)$/i,
+        type: 'asset'
+        
       },
 	
 		]
