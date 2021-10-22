@@ -3,12 +3,16 @@ import '../styles/global.css'
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 
 
-import { Login } from '../containers/Login.jsx';
+
 import { Layaout } from '../containers/Layaout.jsx';
-import { RecoveryPassword } from '../containers/RecoveryPassword.jsx';
+
 
 import { Home } from '../pages/Home.jsx';
 import { NotFound } from '../pages/NotFound.jsx';
+import { CreateNewPassword } from '../pages/CreatePassword.jsx';
+import { Login } from '../pages/Login.jsx';
+
+
 
 
 const App = () => {
@@ -16,9 +20,9 @@ const App = () => {
     <BrowserRouter>
       <Layaout>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Home} />     
           <Route exact path="/login" component={Login} />
-          <Route exact path="/recovery-password" component={RecoveryPassword} />
+          <Route exact path="/create-password" component={CreateNewPassword} />
           <Route path="*" component={NotFound} /> 
         </Switch>
       </Layaout>
