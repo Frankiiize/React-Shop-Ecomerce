@@ -10,6 +10,7 @@ nav {
 }
 .headerLogo {
   width: 100px;
+  display: flex;
 }
 .navbar-left ul,
 .navbar-right ul {
@@ -19,6 +20,7 @@ nav {
   display: flex;
   align-items: center;
   height: 60px;
+  position: relative;
 }
 .navbar-left {
   display: flex;
@@ -43,6 +45,26 @@ nav {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-right: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p{
+    margin-right: 5px;
+  }
+
+}
+.navbar-email:hover{
+  cursor: pointer;
+}
+.navbar-email-arrowDown{
+  width: 10px;
+  height: 10px;
+  display: flex;
+  background-image: url('../assets/icons/flechita.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transform: rotate(90deg);
 }
 .navbar-shopping-cart {
   position: relative;
@@ -61,6 +83,7 @@ nav {
   justify-content: center;
   align-items: center;
 }
+
 @media (max-width: 640px) {
   .menu {
     display: block;
@@ -69,6 +92,9 @@ nav {
     display: none;
   }
   .navbar-email {
+    display: none;
+  }
+  .desktop-menu{
     display: none;
   }
 }

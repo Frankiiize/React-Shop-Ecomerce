@@ -11,6 +11,10 @@ import { Home } from '../pages/Home.jsx';
 import { NotFound } from '../pages/NotFound.jsx';
 import { CreateNewPassword } from '../pages/CreatePassword.jsx';
 import { Login } from '../pages/Login.jsx';
+import { MyAccount } from '../pages/MyAccount.jsx';
+import { MyOrders } from '../pages/MyOrders.jsx';
+
+
 
 
 
@@ -23,6 +27,9 @@ const App = () => {
           <Route exact path="/" component={Home} />     
           <Route exact path="/login" component={Login} />
           <Route exact path="/create-password" component={CreateNewPassword} />
+          <Route exact path="/my-account" component={MyAccount} />
+          <Route exact path="/my-orders" component={MyOrders} />
+
           <Route path="*" component={NotFound} /> 
         </Switch>
       </Layaout>

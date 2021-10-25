@@ -13,11 +13,13 @@ const CreateNewPassword = () => {
       <p className="newPasswordForm-subtitle">Enter a new passwrd for yue account</p>
 
       <form action="/" className="form">
-        <label for="password" className="label">Password</label>
-        <input type="password" id="password" placeholder="*********" className="input input-password"/>
+        <label htmlFor="username" ></label>
+        <input type="text" autoComplete="username" readOnly="username" className="input input-username"  />
+        <label htmlFor="password" className="label">Password</label>
+        <input autoComplete="new-password" type="password" id="password" placeholder="*********" className="input input-password"/>
 
-        <label for="new-password" className="label">Password</label>
-        <input type="password" id="new-password" placeholder="*********" className="input input-password"/>
+        <label htmlFor="new-password" className="label">Password</label>
+        <input autoComplete="new-password" type="password" id="new-password" placeholder="*********" className="input input-password"/>
 
         <input type="submit" value="Confirm" className="primary-button login-button"/>
       </form>
