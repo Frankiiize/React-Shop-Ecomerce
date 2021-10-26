@@ -8,6 +8,7 @@ import yardSaleLogo from '../assets/logos/logo_yard_sale.svg'
 const Header = () => {
   const [menu, setMenu] = React.useState(false);
   const [menuMobile, setMenuMobile] = React.useState(false);
+  
   const toggleMenuDesktop = () => {
     setMenu(!menu);
   };

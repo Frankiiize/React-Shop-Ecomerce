@@ -9,10 +9,12 @@ import { Layaout } from '../containers/Layaout.jsx';
 
 import { Home } from '../pages/Home.jsx';
 import { NotFound } from '../pages/NotFound.jsx';
-import { CreateNewPassword } from '../pages/CreatePassword.jsx';
+import { NewPassword } from '../pages/NewPassword.jsx';
 import { Login } from '../pages/Login.jsx';
 import { MyAccount } from '../pages/MyAccount.jsx';
-import { MyOrders } from '../pages/MyOrders.jsx';
+import { Checkout } from '../pages/Checkout.jsx';
+import { CreateAccount } from '../pages/CreateAccount.jsx';
+import { Orders } from '../pages/Orders.jsx';
 
 
 
@@ -26,10 +28,11 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />     
           <Route exact path="/login" component={Login} />
-          <Route exact path="/create-password" component={CreateNewPassword} />
-          <Route exact path="/my-account" component={MyAccount} />
-          <Route exact path="/my-orders" component={MyOrders} />
-
+          <Route exact path="/newPassword" component={NewPassword} />
+          <Route exact path="/myAccount" component={MyAccount} />
+          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/createAccount" component={CreateAccount} />
+          <Route exact path="/orders" component={Orders} />
           <Route path="*" component={NotFound} /> 
         </Switch>
       </Layaout>
