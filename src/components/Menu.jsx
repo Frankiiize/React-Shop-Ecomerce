@@ -9,11 +9,11 @@ const MenuDesktop = () => {
     <div className="desktop-menu">
     <ul>
       <li>
-        <a href="/my-orders" className="desktop-menu-title">My orders</a>
+        <a href="/orders" className="desktop-menu-title">My orders</a>
       </li>
 
       <li>
-        <a href="/my-account">My account</a>
+        <a href="/myAccount">My account</a>
       </li>
 
       <li>
@@ -24,12 +24,16 @@ const MenuDesktop = () => {
   );
 }
 
-const MenuMobile = ({toggleMenuMobile}) => {
+const MenuMobile = ({handleMenuMobile, user}) => {
   return (
     <div className="mobile-menu">
-      <div className="mobile-menu-closeIcon" >
-        <img onClick={() => {toggleMenuMobile()}} src={closeIcon} /> 
-
+      <div className="mobile-menu-closeIcon">
+        <img
+          onClick={() => {
+            handleMenuMobile();
+          }}
+          src={closeIcon}
+        />
       </div>
       <ul>
         <li>
@@ -54,28 +58,41 @@ const MenuMobile = ({toggleMenuMobile}) => {
           <a href="/">Other</a>
         </li>
       </ul>
-
-      <ul>
-        <li>
-          <a href="/my-orders">My orders</a>
-        </li>
-        <li>
-          <a href="/my-account">My account</a>
-        </li>
-      </ul>
-
-      <ul>
-        <li>
-          <a href="/" className="email">
-            platzi@example.com
-          </a>
-        </li>
+      {!user && (
+        <ul>
         <li>
           <a href="/" className="sign-out">
-            Sign out
+            login
           </a>
         </li>
       </ul>
+      )}
+
+      {!!user && (
+        <>
+          <ul>
+            <li>
+              <a href="/orders">My orders</a>
+            </li>
+            <li>
+              <a href="/myAccount">My account</a>
+            </li>
+          </ul>
+
+          <ul>
+            <li>
+              <a href="/" className="email">
+                platzi@example.com
+              </a>
+            </li>
+            <li>
+              <a href="/" className="sign-out">
+                Sign out
+              </a>
+            </li>
+          </ul>
+        </>
+      )}
     </div>
   );
 }

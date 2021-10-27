@@ -5,6 +5,10 @@
   display: grid;
   place-items: center;
 }
+.login-login{
+  @extend .login;
+  height: calc(100vh - 100px);
+}
 .form-container {
   display: grid;
   grid-template-rows: auto 1fr auto;
