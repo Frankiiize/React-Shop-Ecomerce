@@ -1,5 +1,5 @@
 import React from "react";
-import { OrderItem } from "../components/OrderItem.jsx";
+import { OrderItem } from "./OrderItem.jsx";
 import '../styles/checkout.scss'
 
 

@@ -4,7 +4,8 @@ import iconMenu from '../assets/icons/icon_menu.svg'
 import iconShoppingCard from '../assets/icons/icon_shopping_cart.svg'
 import yardSaleLogo from '../assets/logos/logo_yard_sale.svg'
 
-const Nav = ({handleMenuMobile,handleMenuDesktop}) => {
+const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, setToggleShopCart }) => {
+
   return (
     <>
       <img onClick={handleMenuMobile} src={iconMenu} alt="menu" className="menu" />
@@ -41,9 +42,12 @@ const Nav = ({handleMenuMobile,handleMenuDesktop}) => {
             <p>platzi@example.com</p>
             <i className="navbar-email-arrowDown"></i>
           </li>
-          <li className="navbar-shopping-cart">
+          <li className="navbar-shopping-cart" onClick={() => setToggleShopCart(!toggleShopCart)} >
             <img src={iconShoppingCard} alt="shopping cart" />
-            <div>2</div>
+            {cartState.cart.length > 0 
+            ? <div>{cartState.cart.length}</div> 
+            : null}
+      
           </li>
         </ul>
       </div>
