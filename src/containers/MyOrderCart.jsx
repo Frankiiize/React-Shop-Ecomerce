@@ -7,7 +7,7 @@ import arrow from '../assets/icons/flechita.svg'
 import { OrderItem } from "../components/OrderItem.jsx";
 
 
-const MyOrderCart = () => {
+const MyOrderCart = ({toggleShopCart, setToggleShopCart}) => {
   const {state} = React.useContext(AppContext);
   
   const sumTotal = () => {
@@ -20,28 +20,27 @@ const MyOrderCart = () => {
     <aside className="myOrderCart">
 
       <div className="myOrderCart__title-container">
-        <img src={arrow} alt="arrow" />
+        <img onClick={() => setToggleShopCart(!toggleShopCart)} src={arrow} alt="arrow" />
         <p className="title">My order</p>
       </div>
-      <div className="my-order-content">
+      <div className="myOrderCart-content">
       {state.cart.map((product) => (
         <OrderItem 
           product={product}
           key={`OrderItem-${product.id}`}
         />
         ))}     
-
-        <div className="order">
-          <p>
-            <span>Total</span>
-          </p>
-          <p>{sumTotal()}</p>
-        </div>
-
-        <button className="primary-button">
-          Checkout
-        </button>
       </div>
+
+      <div className="myOrderCart-order">
+        <p>
+          <span>Total</span>
+        </p>
+        <p>{sumTotal()}</p>
+      </div>
+      <button className="primary-button myOrderCart-btn">
+        Checkout
+      </button>
   </aside>
   );
 }

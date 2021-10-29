@@ -1,7 +1,7 @@
 //menu-desktop__styles
 @use  '../styles/vars';
 .desktop-menu {
-  position: absolute;
+  position: fixed;
   min-width: 100px;
   height: auto;
   border: 1px solid var(--very-light-pink);

@@ -1,46 +1,59 @@
 .myOrderCart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 360px;
   padding: 24px;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   top: 60px;
-  bottom: 0px;
+  bottom: 10px;
   right: 0;
   background-color: var(--white);
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
+  z-index: 1;
 }
 .myOrderCart__title-container {
   display: flex;
+  align-content: center;
   .title {
     font-size: var(--lg);
     font-weight: bold;
+    margin: 0;
   }
   img {
     transform: rotate(180deg);
     margin-right: 14px;
   }
 }
+.myOrderCart-content{
+  height: 70%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.myOrderCart-content::-webkit-scrollbar {
+  display: none;
+}
 
-.order {
+.myOrderCart-order {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 16px;
   align-items: center;
   background-color: var(--text-input-field);
-  margin-bottom: 24px;
   border-radius: 8px;
-  padding: 0 24px;
+  padding: 15px 24px;
 }
-.order p:nth-child(1) {
+.myOrderCart-order p:nth-child(1) {
   display: flex;
   flex-direction: column;
 }
-.order p span:nth-child(1) {
+.myOrderCart-order p span:nth-child(1) {
   font-size: var(--md);
   font-weight: bold;
 }
-.order p:nth-child(2) {
+.myOrderCart-order p:nth-child(2) {
   text-align: end;
   font-weight: bold;
 }
@@ -67,6 +80,9 @@
   font-size: var(--md);
   font-weight: bold;
 }
+.myOrderCart-btn{
+  align-self: center;
+}
 .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
@@ -78,8 +94,12 @@
   font-weight: bold;
   height: 50px;
 }
+
 @media (max-width: 640px) {
   .myOrderCart {
     width: 100%;
+  }
+  .myOrderCart-btn{
+    align-self: center;
   }
 }

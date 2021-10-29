@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Header.scss'
+
 import iconMenu from '../assets/icons/icon_menu.svg'
 import iconShoppingCard from '../assets/icons/icon_shopping_cart.svg'
 import yardSaleLogo from '../assets/logos/logo_yard_sale.svg'

@@ -12,6 +12,17 @@ const useInitialState = () => {
       ...state, 
       cart:[...state.cart, payLoad]
     });
+   /*  debugger
+    for(let i = 0 ; i <= state.cart.length; i++){
+      console.log(state.cart[i]);
+      if(state.cart.length > 0 && state.cart[i].id === payLoad.id ){
+        console.log('hay iguales')
+      } else {
+        console.log("no hay iguales")
+       
+      }
+    } */
+    
   };
 
   const removeFromCart = (payload) =>{
@@ -21,7 +32,9 @@ const useInitialState = () => {
     })
 
   }
-  console.log(state);
+
+console.log(state.cart)
+  
   return {
     state,
     addToCart,

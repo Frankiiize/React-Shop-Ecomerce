@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/Header.scss'
 import { MenuDesktop, MenuMobile } from "./Menu.jsx";
 import { Nav } from "./Nav.jsx";
 import { useMenu } from "../hooks/useMenu.js";
@@ -13,11 +14,11 @@ const Header = ({children}) => {
   const [toggleShopCart, setToggleShopCart] = React.useState(false);
   return (
     <>
+    {toggleShopCart && <MyOrderCart toggleShopCart={toggleShopCart} setToggleShopCart={setToggleShopCart} />}
     {mobileMenu && <MenuMobile handleMenuMobile={handleMenuMobile} user={isUserLog} />}
-    {desktopMenu && <MenuDesktop  />}
-    {toggleShopCart && <MyOrderCart />}
    
       <nav>
+        {desktopMenu && <MenuDesktop  />}
         <Nav
             cartState={state}
             handleMenuMobile={handleMenuMobile}

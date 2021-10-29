@@ -1,5 +1,6 @@
 import React from "react";
-import iconAddToCart from '../assets/icons/bt_add_to_cart.svg'
+import iconAddToCart from '../assets/icons/bt_add_to_cart.svg';
+import iconAdded from '../assets/icons/bt_added_to_cart.svg';
 import  { AppContext }  from "../context/AppContext";
 
 const ProducItem = ({product}) => {
