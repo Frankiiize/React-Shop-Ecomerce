@@ -6,29 +6,52 @@ const initialState = {
 
 const useInitialState = () => {
   const [state, setState] = React.useState(initialState);
+  
+  const addToCart = (payLoad , count) => {
+    const filter = state.cart.some((item) => item.id === payLoad.id );
 
-  const addToCart = (payLoad) => {
-    setState({
-      ...state, 
-      cart:[...state.cart, payLoad]
-    });
-   /*  debugger
-    for(let i = 0 ; i <= state.cart.length; i++){
-      console.log(state.cart[i]);
-      if(state.cart.length > 0 && state.cart[i].id === payLoad.id ){
-        console.log('hay iguales')
-      } else {
-        console.log("no hay iguales")
-       
-      }
-    } */
+    if(state.cart.length > 0 ){
+      if(filter){
+        const index = state.cart.findIndex((item) => item.id === payLoad.id );
+      //  debugger
+        
+        let obj = {...state.cart[index]};
+   
+        function cantidadItems (valor) {
+          this.cantidad = valor;
+        }
+        cantidadItems.apply(obj,[count])
+        console.log(obj)
+
+      
+
+        
     
+        setState({
+          ...state, 
+          cart: state.cart.filter((item) => item.id === payLoad.id),
+        })
+       
+        console.log("hay items iguales")
+      }else{
+        setState({
+          ...state, 
+          cart:[...state.cart, payLoad]
+        });
+      }
+      
+    }else {
+        setState({
+          ...state, 
+          cart:[...state.cart, payLoad]
+        });
+    }
   };
 
-  const removeFromCart = (payload) =>{
+  const removeFromCart = (payLoad) =>{
     setState({
       ...state,
-      cart: state.cart.filter((item) => item.id !== payload.id),
+      cart: state.cart.filter((item) => item.id !== payLoad.id),
     })
 
   }

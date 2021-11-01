@@ -19,3 +19,20 @@ body {
   font-family: 'Quicksand', sans-serif;
   
 }
+
+body::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+body::-webkit-scrollbar:vertical {
+  width:15px;
+  height: 50px;
+}
+
+body::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+} 
+body::-webkit-scrollbar-thumb {
+  background-color: var(--very-light-pink);
+  border-radius: 20px;
+  border: 2px solid var(--text-input-field);
+}

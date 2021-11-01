@@ -8,12 +8,14 @@ const OrderItem = ({product}) => {
   const handleRemove = (item) => {
     removeFromCart(item)
   }
+ 
 	return (
     <>
 		 <div className="shopping-cart">
         <figure>
           <img src={product.images[0]} alt={product.title}/>
         </figure>
+        <p>{product.cantidad}</p>
         <p>{product.title}</p>
         <p>${product.price}</p>
         <img onClick={() => handleRemove(product)} src={closeIcon} alt="close"/>

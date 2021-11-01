@@ -8,9 +8,12 @@ const useGetProducts = (API) => {
   const [loading, setLoading] = useState(true);
  
   useEffect( async () => {
+    
     try {
       const data = await fetch(API);
       const res = await data.json();
+      res.map((item) => (item.cantidad))
+   
       setProducts(res);
       setLoading(false);
      
