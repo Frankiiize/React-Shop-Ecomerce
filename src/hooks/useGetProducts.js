@@ -21,6 +21,7 @@ const useGetProducts = (API) => {
       setError(error);
     }
   },[]);
+
   return { products ,error, loading};
 
 

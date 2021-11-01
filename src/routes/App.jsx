@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/global.css'
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import { Layaout } from '../containers/Layaout.jsx';
-import { Home } from '../pages/Home.jsx';
+import { Clothes, Electronics, Forniture, Home, Toys, Others } from '../pages/Home.jsx';
 import { NotFound } from '../pages/NotFound.jsx';
 import { NewPassword } from '../pages/NewPassword.jsx';
 import { Login } from '../pages/Login.jsx';
@@ -25,6 +25,11 @@ const App = () => {
         <Layaout>
           <Switch>
             <Route exact path="/" component={Home} />     
+            <Route exact path="/home/clothes" component={Clothes} />     
+            <Route exact path="/home/electronics" component={Electronics} />     
+            <Route exact path="/home/fornitures" component={Forniture} />     
+            <Route exact path="/home/toys" component={Toys} />     
+            <Route exact path="/home/others" component={Others} />     
             <Route exact path="/login" component={Login} />
             <Route exact path="/newPassword" component={NewPassword} />
             <Route exact path="/myAccount" component={MyAccount} />

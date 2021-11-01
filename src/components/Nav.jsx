@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import iconMenu from '../assets/icons/icon_menu.svg'
 import iconShoppingCard from '../assets/icons/icon_shopping_cart.svg'
@@ -16,22 +17,22 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
 
         <ul>
           <li>
-            <a href="/">All</a>
+            <Link to="/">All</Link>
           </li>
           <li>
-            <a href="/">Clothes</a>
+            <Link to="/home/clothes">Clothes</Link>
           </li>
           <li>
-            <a href="/">Electronics</a>
+            <Link to="/home/electronics">Electronics</Link>
           </li>
           <li>
-            <a href="/">Furnitures</a>
+            <Link to="/home/fornitures">Furnitures</Link>
           </li>
           <li>
-            <a href="/">Toys</a>
+            <Link to="/home/toys">Toys</Link>
           </li>
           <li>
-            <a href="/">Others</a>
+            <Link to="/home/others">Others</Link>
           </li>
         </ul>
       </div>
