@@ -10,36 +10,13 @@ const useInitialState = () => {
   const addToCart = (payLoad , count) => {
     const filter = state.cart.some((item) => item.id === payLoad.id );
 
-    if(state.cart.length > 0 ){
-      if(filter){
-        const index = state.cart.findIndex((item) => item.id === payLoad.id );
-      //  debugger
-        
-        let obj = {...state.cart[index]};
-   
-        function cantidadItems (valor) {
-          this.cantidad = valor;
-        }
-        cantidadItems.apply(obj,[count])
-        console.log(obj)
-
-      
-
-        
-    
-        setState({
-          ...state, 
-          cart: state.cart.filter((item) => item.id === payLoad.id),
-        })
-       
-        console.log("hay items iguales")
-      }else{
-        setState({
-          ...state, 
-          cart:[...state.cart, payLoad]
-        });
-      }
-      
+    if(state.cart.length > 0 && filter ){
+      const index = state.cart.findIndex((item) => item.id === payLoad.id );
+      setState({
+        ...state, 
+        cart: state.cart.filter((item) => item.id === payLoad.id),
+      })
+      console.log("hay items iguales")
     }else {
         setState({
           ...state, 
