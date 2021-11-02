@@ -29,7 +29,7 @@ const ProducItem = ({ product }) => {
  
   return(
     <>
-     {toggleProductsDetails && 
+     {!!toggleProductsDetails && 
      <ProductDetails
      toggleProductsDetails={toggleProductsDetails}
      setToggleProductsDetails={setToggleProductsDetails}
@@ -50,6 +50,7 @@ const ProducItem = ({ product }) => {
             <p>{product.cantidad}</p>
             <p>${product.price}</p>
             <p>{product.title}</p>
+            <p>Category:{product.category.name}</p>
           </div>
           <figure onClick={() => handleCart(product)}>
             <img src={(idItemsAdded.includes(product.id)) ? iconAdded : iconAddToCart} alt="add to cart"/>

@@ -92,6 +92,9 @@
 .shopping-cart figure {
   margin: 0;
 }
+.shopping-cart img {
+  filter: invert(1);
+}
 .shopping-cart img:hover{
   cursor: pointer;
 }
@@ -126,6 +129,7 @@
   0%{
     width: 0;
     height: 0;
+    top: 60px;
   }
   
   100% {

@@ -10,6 +10,7 @@
   background-color: var(--white);
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
+
 }
 .product-detail-close {
   display: flex;
@@ -89,6 +90,16 @@
   align-items: center;
   justify-content: center;
 }
+.swiper-button-prev{
+  color: var(--very-light-pink) !important;
+}
+.swiper-button-next{
+  color: var(--very-light-pink) !important;
+}
+.swiper-pagination-bullet{
+  background: var(--very-light-pink) !important;
+}
+
 @media (max-width: 640px) {
   .product-detail {
     max-width: 100%;

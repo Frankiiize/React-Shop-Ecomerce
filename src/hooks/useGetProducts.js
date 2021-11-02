@@ -21,6 +21,17 @@ const useGetProducts = (API) => {
      
     }catch (error){
       setError(error);
+      setTimeout(async () => {
+        try{
+          const data = await fetch(API);
+          const res = await data.json();
+          res.map((item) => (item.added = null))
+          setProducts(res);
+          setLoading(false);
+        } catch (error) {
+          setError(error)
+        }
+      },500)
     }
   },[]);
 

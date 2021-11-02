@@ -9,8 +9,11 @@ import "swiper/css/pagination"
 import "swiper/css/navigation"
 
 SwiperCore.use([EffectFlip,Pagination,Navigation]);
+
+
 const style = {
   width: "100%",
+  borderRadius: "5px"
 }
 
 const ProductInfo = ({product, handleCart, idItemsAdded}) => {
@@ -19,13 +22,13 @@ const ProductInfo = ({product, handleCart, idItemsAdded}) => {
     <>
       <Swiper 
       effect={'flip'} 
-      grabCursor={true} 
+    
       pagination={true} 
       navigation={true} 
       className="mySwiper">
         {product.images.map((img) => (
-          <SwiperSlide>
-            <img style={style} src={img} alt="bike"/>
+          <SwiperSlide key={`${img}-${product.id}`}>
+            <img style={style} src={img} alt={product.title}/>
           </SwiperSlide>
         ))}
       </Swiper>
