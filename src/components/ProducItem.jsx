@@ -38,7 +38,7 @@ const ProducItem = ({ product }) => {
         product={product}
         handleCart={handleCart}
         idItemsAdded={idItemsAdded}
-        
+        key={`productDetails1 ${product.id}`}
       /> 
      </ProductDetails>
      }

@@ -1,12 +1,35 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { EffectFlip,Pagination,Navigation } from 'swiper';
 import iconAddToCart from '../assets/icons/bt_add_to_cart.svg';
 import iconAdded from '../assets/icons/bt_added_to_cart.svg';
+import "swiper/css";
+import "swiper/css/effect-flip"
+import "swiper/css/pagination"
+import "swiper/css/navigation"
+
+SwiperCore.use([EffectFlip,Pagination,Navigation]);
+const style = {
+  width: "100%",
+}
 
 const ProductInfo = ({product, handleCart, idItemsAdded}) => {
 
   return(
     <>
-      <img src={product.images[0]} alt="bike"/>
+      <Swiper 
+      effect={'flip'} 
+      grabCursor={true} 
+      pagination={true} 
+      navigation={true} 
+      className="mySwiper">
+        {product.images.map((img) => (
+          <SwiperSlide>
+            <img style={style} src={img} alt="bike"/>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
       <div className="product-info">
         <p>{product.price}</p>
         <p>{product.title}</p>
