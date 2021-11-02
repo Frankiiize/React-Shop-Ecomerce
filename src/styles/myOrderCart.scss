@@ -30,6 +30,9 @@
     transform: rotate(180deg);
     margin-right: 14px;
   }
+  img:hover{
+    cursor: pointer;
+  }
 }
 .myOrderCart-content{
   width: 100%;
@@ -79,13 +82,18 @@
 }
 .shopping-cart {
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-bottom: 24px;
   align-items: center;
+  justify-content: space-between;
+  justify-items: center;
 }
 .shopping-cart figure {
   margin: 0;
+}
+.shopping-cart img:hover{
+  cursor: pointer;
 }
 .shopping-cart figure img {
   width: 70px;

@@ -28,6 +28,9 @@
 .productItem-info figure {
   margin: 0;
 }
+.productItem-info figure:hover{
+  cursor: pointer;
+}
 .productItem-info figure img {
   width: 35px;
   height: 35px;

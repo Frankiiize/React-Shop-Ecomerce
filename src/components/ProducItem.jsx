@@ -2,29 +2,49 @@ import React from "react";
 import iconAddToCart from '../assets/icons/bt_add_to_cart.svg';
 import iconAdded from '../assets/icons/bt_added_to_cart.svg';
 import  { AppContext }  from "../context/AppContext";
+import { ProductDetails } from "../containers/ProductDetails.jsx";
+import { ProductInfo } from "./ProductInfo.jsx";
+
 
 const ProducItem = ({ product }) => {
-  const { addToCart, removeFromCart  } = React.useContext(AppContext);
-  const [addIconAdded, setAddIconAdded] = React.useState(false)
-
- 
- 
+  const {  removeFromCart , saveCart, state, parserCart } = React.useContext(AppContext);
+  const [ toggleProductsDetails, setToggleProductsDetails ] = React.useState(false);
   
+
+  const itemsParserCart = parserCart.cart.filter(item => item.added)
+  const idItemsAdded = itemsParserCart.map((item) => item.id)
+
   const handleCart = (item) => {
-    if(!addIconAdded){
-      setAddIconAdded(!addIconAdded)
-      addToCart(item);
-    }else {
-      setAddIconAdded(!addIconAdded)
+    //debugger
+    if(!item.added ){
+      (idItemsAdded.includes(item.id))
+      ? ( item.added = false, removeFromCart(item))
+      : ( item.added = true, saveCart(item))
+      } 
+      else {
+      item.added = false;
       removeFromCart(item);
     }
-
   }
  
   return(
     <>
+     {toggleProductsDetails && 
+     <ProductDetails
+     toggleProductsDetails={toggleProductsDetails}
+     setToggleProductsDetails={setToggleProductsDetails}
+     >
+      <ProductInfo
+        product={product}
+        handleCart={handleCart}
+        idItemsAdded={idItemsAdded}
+        
+      /> 
+     </ProductDetails>
+     }
+    
     <div className="productItem">
-        <img src={product.images[0]} alt={product.title}/>
+        <img onClick={() => setToggleProductsDetails(!toggleProductsDetails)} src={product.images[0]} alt={product.title}/>
         <div className="productItem-info">
           <div>
             <p>{product.cantidad}</p>
@@ -32,7 +52,7 @@ const ProducItem = ({ product }) => {
             <p>{product.title}</p>
           </div>
           <figure onClick={() => handleCart(product)}>
-            <img src={addIconAdded ? iconAddToCart : iconAdded} alt="add to cart"/>
+            <img src={(idItemsAdded.includes(product.id)) ? iconAdded : iconAddToCart} alt="add to cart"/>
           </figure>
         </div>
     </div>

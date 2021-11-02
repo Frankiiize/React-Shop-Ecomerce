@@ -1,0 +1,41 @@
+.skeletonContainer{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+  place-content: center;
+  &__loadinCart{
+    justify-self: center;
+    width: 240px;
+    height: 240px;
+    filter: opacity(0.2);
+    background-color: var(--text-input-field);
+    border-radius: 20px;
+    animation-name: preloadAnimation;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    background: linear-gradient(to right, var(--text-input-field) 8%, 22%, var(--very-light-pink) 67%)
+
+  }
+}
+
+@keyframes preloadAnimation{
+  0%{
+      background-position: -769px 0;
+  }
+  100%{
+      background-position: 769px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .skeletonContainer {
+    grid-template-columns: repeat(auto-fill, 140px);
+    &__loadinCart {
+      height: 100px;
+     
+    }
+  }
+  
+}
