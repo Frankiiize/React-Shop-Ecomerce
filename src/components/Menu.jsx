@@ -18,7 +18,7 @@ const MenuDesktop = () => {
       </li>
 
       <li>
-        <a href="/React-Shop-Ecomerce">Sign out</a>
+        <a href="/React-Shop-Ecomerce/">Sign out</a>
       </li>
     </ul>
   </div>
@@ -41,7 +41,7 @@ const MenuMobile = ({handleMenuMobile, user}) => {
           <a href="/">CATEGORIES</a>
         </li>
         <li>
-            <Link to="/React-Shop-Ecomerce">All</Link>
+            <Link to="/React-Shop-Ecomerce/">All</Link>
         </li>
         <li>
           <Link to="/React-Shop-Ecomerce/home/clothes">Clothes</Link>
@@ -87,7 +87,7 @@ const MenuMobile = ({handleMenuMobile, user}) => {
               </a>
             </li>
             <li>
-              <Link to="/React-Shop-Ecomerce" className="sign-out">
+              <Link to="/React-Shop-Ecomerce/" className="sign-out">
                 Sign out
               </Link>
             </li>
