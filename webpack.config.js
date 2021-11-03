@@ -1,7 +1,8 @@
+const webpack = require('webpack')
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const ASSET_PATH = process.env.ASSET_PATH || '/';
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
@@ -9,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname,'build'),
     filename: 'bundle.js',
     hashFunction: "xxhash64",
-    publicPath: 'auto',
+    publicPath: ASSET_PATH,
   },
   module: {
     rules: [
@@ -52,6 +53,9 @@ module.exports = {
 		}),
     new MiniCssExtractPlugin({
       filename: '[name].css'
+    }),
+    new webpack.DefinePlugin({
+      'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
     }),
   ],
   devServer: {
