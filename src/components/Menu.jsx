@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import '../styles/MenuDesktop.scss';
 import '../styles/MenuMobile.scss';
 
@@ -9,15 +10,15 @@ const MenuDesktop = () => {
     <div className="desktop-menu">
     <ul>
       <li>
-        <a href="/orders" className="desktop-menu-title">My orders</a>
+        <Link to="/React-Shop-Ecomerce/orders" className="desktop-menu-title">My orders</Link>
       </li>
 
       <li>
-        <a href="/myAccount">My account</a>
+        <Link to="/React-Shop-Ecomerce/myAccount">My account</Link>
       </li>
 
       <li>
-        <a href="/">Sign out</a>
+        <a href="/React-Shop-Ecomerce">Sign out</a>
       </li>
     </ul>
   </div>
@@ -40,22 +41,22 @@ const MenuMobile = ({handleMenuMobile, user}) => {
           <a href="/">CATEGORIES</a>
         </li>
         <li>
-          <a href="/">All</a>
+            <Link to="/React-Shop-Ecomerce">All</Link>
         </li>
         <li>
-          <a href="/">Clothes</a>
+          <Link to="/React-Shop-Ecomerce/home/clothes">Clothes</Link>
         </li>
         <li>
-          <a href="/">Electronics</a>
+          <Link to="/React-Shop-Ecomerce/home/electronics">Electronics</Link>
         </li>
         <li>
-          <a href="/">Furnitures</a>
+          <Link to="/React-Shop-Ecomerce/home/fornitures">Furnitures</Link>
         </li>
         <li>
-          <a href="/">Toys</a>
+          <Link to="/React-Shop-Ecomerce/home/toys">Toys</Link>
         </li>
         <li>
-          <a href="/">Other</a>
+          <Link to="/React-Shop-Ecomerce/home/others">Others</Link>
         </li>
       </ul>
       {!user && (
@@ -72,10 +73,10 @@ const MenuMobile = ({handleMenuMobile, user}) => {
         <>
           <ul>
             <li>
-              <a href="/orders">My orders</a>
+              <Link to="/React-Shop-Ecomerce/orders">My orders</Link>
             </li>
             <li>
-              <a href="/myAccount">My account</a>
+              <Link to="/React-Shop-Ecomerce/myAccount">My account</Link>
             </li>
           </ul>
 
@@ -86,9 +87,9 @@ const MenuMobile = ({handleMenuMobile, user}) => {
               </a>
             </li>
             <li>
-              <a href="/" className="sign-out">
+              <Link to="/React-Shop-Ecomerce" className="sign-out">
                 Sign out
-              </a>
+              </Link>
             </li>
           </ul>
         </>
