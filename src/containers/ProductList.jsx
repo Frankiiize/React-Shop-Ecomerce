@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { ProducItem } from "../components/ProducItem.jsx";
 import '../styles/ProducList.scss';
-import axios from "axios";
-
-import { Layaout } from "./Layaout.jsx";
 import { ErrorState, LoadingState } from "../components/SkeletonLoading.jsx";
+import { ProducItem } from "../components/ProducItem.jsx";
 import { ProductDetails } from "../containers/ProductDetails.jsx";
 
 
