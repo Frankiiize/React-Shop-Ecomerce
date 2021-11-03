@@ -3,10 +3,10 @@ import React from "react";
 import { ProductList } from "../containers/ProductList.jsx";
 import { useGetProducts } from "../hooks/useGetProducts.js";
 
+const API = 'https://api.escuelajs.co/api/v1/products?limit=0&offset=0'
 
 
 const Home = () => {
-  const API = 'https://api.escuelajs.co/api/v1/products?limit=0&offset=0'
   const {products, error, loading} = useGetProducts(API);
    return (
     <>

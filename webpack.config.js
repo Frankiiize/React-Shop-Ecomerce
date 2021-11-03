@@ -9,7 +9,7 @@ module.exports = {
     path: path.resolve(__dirname,'build'),
     filename: 'bundle.js',
     hashFunction: "xxhash64",
-    publicPath: '/React-Shop-Ecomerce/',
+    publicPath: 'auto',
   },
   module: {
     rules: [
