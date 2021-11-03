@@ -35,7 +35,7 @@ const App = () => {
             <Route exact path="/React-Shop-Ecomerce/myAccount" component={MyAccount} />
             <Route exact path="/React-Shop-Ecomerce/createAccount" component={CreateAccount} />
             <Route exact path="/React-Shop-Ecomerce/orders" component={Orders} />
-            <Route path="*" component={NotFound} /> 
+            <Route path="/React-Shop-Ecomerce/*" component={NotFound} /> 
           </Switch>
         </Layaout>
       </BrowserRouter>
