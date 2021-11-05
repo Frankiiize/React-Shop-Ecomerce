@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import '../styles/MenuDesktop.scss';
 import '../styles/MenuMobile.scss';
 
@@ -37,25 +38,22 @@ const MenuMobile = ({handleMenuMobile, user}) => {
       </div>
       <ul>
         <li>
-          <a href="/">CATEGORIES</a>
+          <Link to="/">All</Link>
         </li>
         <li>
-          <a href="/">All</a>
+          <Link to="/home/clothes">Clothes</Link>
         </li>
         <li>
-          <a href="/">Clothes</a>
+          <Link to="/home/electronics">Electronics</Link>
         </li>
         <li>
-          <a href="/">Electronics</a>
+          <Link to="/home/fornitures">Furnitures</Link>
         </li>
         <li>
-          <a href="/">Furnitures</a>
+          <Link to="/home/toys">Toys</Link>
         </li>
         <li>
-          <a href="/">Toys</a>
-        </li>
-        <li>
-          <a href="/">Other</a>
+          <Link to="/home/others">Others</Link>
         </li>
       </ul>
       {!user && (

@@ -24,7 +24,7 @@ const App = () => {
       <BrowserRouter>
         <Layaout>
           <Switch>
-            <Route exact path="/" component={Home} />     
+            <Route exact path="/" component={Home}/ >
             <Route exact path="/home/clothes" component={Clothes} />     
             <Route exact path="/home/electronics" component={Electronics} />     
             <Route exact path="/home/fornitures" component={Forniture} />     

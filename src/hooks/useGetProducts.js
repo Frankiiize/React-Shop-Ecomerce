@@ -4,6 +4,8 @@ import { AppContext } from "../context/AppContext";
 
 
 const useGetProducts = (API) => {
+  //debugger
+
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -16,6 +18,7 @@ const useGetProducts = (API) => {
       const data = await fetch(API);
       const res = await data.json();
       res.map((item) => (item.added = null))
+
       setProducts(res);
       setLoading(false);
      
@@ -31,10 +34,10 @@ const useGetProducts = (API) => {
         } catch (error) {
           setError(error)
         }
-      },500)
+      },100)
     }
   },[]);
-
+  
   return { products ,error, loading};
 
 

@@ -8,10 +8,10 @@ import shadow from "../assets/notFound/sombra.png"
 const NotFound = () => {
   return (
     <main>
-      <header>
+      <div className="not-Found">
         <h1>OOOPS!</h1>
         <p>¡Parece que la paguina que buscas no la encontramos!</p>
-      </header>
+      </div>
       <section className="content-placeCenter">
         <div className="background__noFound">
           <img className="background__noFound-kitty" src={kitty}/>
