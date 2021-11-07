@@ -4,16 +4,20 @@ import { AppContext } from "../context/AppContext";
 
 import arrow from '../assets/icons/flechita.svg'
 
-import { OrderItem } from "../components/OrderItem.jsx";
+import { CheckOutItem } from "../components/CheckOutItem.jsx";
 
 
 const MyOrderCart = ({toggleShopCart, setToggleShopCart}) => {
-  const {state} = React.useContext(AppContext);
+  const {state , buyedItem} = React.useContext(AppContext);
   
   const sumTotal = () => {
     const reducer= (previusValue, currentValue) => previusValue + currentValue.price;
     const sum = state.cart.reduce(reducer,0);
     return sum;
+  }
+
+  const handleCheckout = (items) => {
+    buyedItem(items)
   }
 
   return (
@@ -25,7 +29,7 @@ const MyOrderCart = ({toggleShopCart, setToggleShopCart}) => {
       </div>
       <div className="myOrderCart-content">
       {state.cart.map((product) => (
-        <OrderItem 
+        <CheckOutItem 
           product={product}
           key={`OrderItem-${product.id}`}
         />
@@ -38,7 +42,7 @@ const MyOrderCart = ({toggleShopCart, setToggleShopCart}) => {
         </p>
         <p>{sumTotal()}</p>
       </div>
-      <button className="primary-button myOrderCart-btn">
+      <button onClick={() => handleCheckout(state)} className="primary-button myOrderCart-btn">
         Checkout
       </button>
   </aside>

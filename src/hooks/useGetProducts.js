@@ -37,7 +37,7 @@ const useGetProducts = (API) => {
       },100)
     }
   },[]);
-  
+
   return { products ,error, loading};
 
 

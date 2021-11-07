@@ -1,13 +1,25 @@
 import React from "react";
+import { useLocalStorage } from "./useLocalStorage";
+const user = {
+  name: 'francisco',
+  lasteName: 'jimenez'
+}
 
 const initialState = {
   cart:[],
 }
 
 const useInitialState = () => {
+
+  const { parseItem: parserCart } = useLocalStorage("cart", initialState);
+  const { parseItem: parserBuy } = useLocalStorage("buy", []);
   
-  const localStorageCart= localStorage.getItem('cart');
+  const [state, setState] = React.useState(parserCart);
+
+  /* const localStorageCart= localStorage.getItem('cart');
   let parserCart;
+
+  
 
   if(!localStorageCart){
     localStorage.setItem("cart", JSON.stringify(initialState))
@@ -15,10 +27,7 @@ const useInitialState = () => {
 
   }else {
     parserCart= JSON.parse(localStorageCart);
-  }
-
-  const [state, setState] = React.useState(parserCart);
-  
+  } */
   const saveCart = (payLoad) => {
     const filter = parserCart.cart.some((item) => item.id === payLoad.id)
     if(!filter){
@@ -36,25 +45,6 @@ const useInitialState = () => {
     } 
       
   }
-
-  /* const addToCart = (payLoad) => {
-    const filter = state.cart.some((item) => item.id === payLoad.id );
-
-    if(state.cart.length > 0 && filter ){
-      const index = state.cart.findIndex((item) => item.id === payLoad.id );
-      setState({
-        ...state, 
-        cart: state.cart.filter((item) => item.id === payLoad.id),
-      })
-      console.log("hay items iguales")
-    }else {
-        setState({
-          ...state, 
-          cart:[...state.cart, payLoad]
-        });
-    }
-  }; */
-
   const removeFromCart = (payLoad) =>{
     const cartAdd = {
       ...state,
@@ -69,13 +59,53 @@ const useInitialState = () => {
     
   }
 
-console.log(parserCart.cart)
+
+ 
+  const [buyState, setBuyState] = React.useState(parserBuy)
+
+  const buyedItem = (items) => {
+    //debugger
+    
+    const item = [
+      ...buyState,
+      {
+        fecha: Date.now(),
+        shop: items.cart,
+      },
+    ];
+    setBuyState(item);
+    setState(initialState);
+    localStorage.setItem("cart", JSON.stringify(initialState));
+    localStorage.setItem("buy",JSON.stringify(item));
+    
+    console.log(buyState);
   
+   
+   /*  
+    const stringfiedItem = JSON.stringify(buyedHistory);
+    
+    const cartEmpy = {
+      ...state,
+      cart: [],
+    }
+ 
+    setState({
+      ...state,
+      cart: []
+    })
+    localStorage.setItem("buyedHistory", stringfiedItem);
+    localStorage.setItem("cart", JSON.stringify(cartEmpy)); */
+
+  }
+
   return {
     state,
     removeFromCart,
     saveCart,
     parserCart,
+    buyState,
+    setBuyState,
+    buyedItem
   }
 };
 
