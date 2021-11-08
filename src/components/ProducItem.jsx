@@ -1,4 +1,5 @@
 import React from "react";
+import { FormattedNumber } from 'react-intl'
 import iconAddToCart from '../assets/icons/bt_add_to_cart.svg';
 import iconAdded from '../assets/icons/bt_added_to_cart.svg';
 import  { AppContext }  from "../context/AppContext";
@@ -27,6 +28,7 @@ const ProducItem = ({ product }) => {
     }
   }
  
+ 
   return(
     <>
      {!!toggleProductsDetails && 
@@ -44,11 +46,18 @@ const ProducItem = ({ product }) => {
      }
     
     <div className="productItem">
-        <img onClick={() => setToggleProductsDetails(!toggleProductsDetails)} src={product.images[0]} alt={product.title}/>
+        <img
+        loading="lazy" 
+        src={product.images[0]} alt={product.title}
+        onClick={() => setToggleProductsDetails(!toggleProductsDetails)} 
+        />
+
+        
+
         <div className="productItem-info">
           <div>
             <p>{product.cantidad}</p>
-            <p>${product.price}</p>
+            <FormattedNumber value={product.price} style="currency" currency="USD"/>
             <p>{product.title}</p>
             <p>Category:{product.category.name}</p>
           </div>

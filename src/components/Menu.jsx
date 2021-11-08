@@ -38,9 +38,10 @@ const MenuMobile = ({handleMenuMobile, user}) => {
       </div>
       <ul>
         <li>
-          <a href="/">CATEGORIES</a>
+          <Link to="/">All</Link>
         </li>
         <li>
+<<<<<<< HEAD
             <Link to="/React-Shop-Ecomerce/">All</Link>
         </li>
         <li>
@@ -57,6 +58,21 @@ const MenuMobile = ({handleMenuMobile, user}) => {
         </li>
         <li>
           <Link to="/React-Shop-Ecomerce/home/others">Others</Link>
+=======
+          <Link to="/home/clothes">Clothes</Link>
+        </li>
+        <li>
+          <Link to="/home/electronics">Electronics</Link>
+        </li>
+        <li>
+          <Link to="/home/fornitures">Furnitures</Link>
+        </li>
+        <li>
+          <Link to="/home/toys">Toys</Link>
+        </li>
+        <li>
+          <Link to="/home/others">Others</Link>
+>>>>>>> dev
         </li>
       </ul>
       {!user && (

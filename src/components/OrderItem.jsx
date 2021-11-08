@@ -1,27 +1,36 @@
-import React from 'react';
-import { AppContext } from '../context/AppContext';
-import closeIcon from '../assets/icons/icon_close.png'
+import React from "react";
+
+import arrow from '../assets/icons/flechita.svg'
+import { CheckOutItem } from "./CheckOutItem.jsx";
 
 
-const OrderItem = ({product}) => {
-  const {removeFromCart} = React.useContext(AppContext);
-  const handleRemove = (item) => {
-    removeFromCart(item)
+const OrderItem = ({ price, articles, fecha, shop }) => {
+
+  const [handleHistory, setHandleHistory] = React.useState(false);
+  const show = () => {
+    setHandleHistory(!handleHistory);
   }
- 
-	return (
+  return(
     <>
-		 <div className="shopping-cart">
-        <figure>
-          <img src={product.images[0]} alt={product.title}/>
-        </figure>
-        <p>{product.title}</p>
-        <p>${product.price}</p>
-        <img onClick={() => handleRemove(product)} src={closeIcon} alt="close"/>
+      <div className="order">
+        <p>
+          <span>{fecha}</span>
+          <span>{articles} articles</span>
+        </p>
+        <p>{price}</p>
+        <img src={arrow}alt="arrow" onClick={show}/>
+      </div>
+      <div className = "shoping-cartHistory">
+        {handleHistory && shop.map((item) =>(
+          <CheckOutItem 
+            product={item}
+            disabled={true}
+            key={`orderHistory-${item.id}`}
+          /> 
+        ))}
       </div>
     </>
-	);
+  );
 }
 
 export { OrderItem };
-
