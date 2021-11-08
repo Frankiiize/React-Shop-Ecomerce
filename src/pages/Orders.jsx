@@ -9,10 +9,15 @@ import { OrderItem } from '../components/OrderItem.jsx';
 
 const Orders = () => {
   
-  const { buyState } = React.useContext(AppContext)
+  const { buyState } = React.useContext(AppContext);
+ 
+  const sumaTotal = (arr) => {
+    const reducer = (previousValue, currentValue) => previousValue + currentValue.price;
+    const sum = arr.reduce(reducer, 0)
+    return sum;
+  }
 
-  
-  
+  const show = true
 	return (
     <>
       <div className="Orders">
@@ -27,6 +32,7 @@ const Orders = () => {
               articles={item.shop.length}
               fecha={item.fecha}
               shop={item.shop}
+              price={sumaTotal(item.shop)}
             />
           ))}
         

@@ -5,6 +5,7 @@
 	height: 100vh;
 	display: grid;
 	place-items: center;
+
 }
 .title {
 	font-size: var(--lg);
@@ -13,7 +14,7 @@
 .Orders-container {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
-	width: 300px;
+	width: 50%;
 }
 .Orders-content {
 	display: flex;
@@ -26,6 +27,13 @@
   gap: 16px;
   align-items: center;
   margin-bottom: 12px;
+  
+  border-radius: 5px;
+  padding: 5px;
+}
+.orderOpen{
+  @extend .order;
+  background-color: var( --text-input-field);
 }
 .order img{
   padding: 15px;

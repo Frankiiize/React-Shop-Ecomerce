@@ -17,7 +17,12 @@ const MyOrderCart = ({toggleShopCart, setToggleShopCart}) => {
   }
 
   const handleCheckout = (items) => {
-    buyedItem(items)
+   
+    if(items.cart.length !== 0){
+      buyedItem(items)
+    } else {
+      return;
+    }
   }
 
   return (
@@ -35,7 +40,6 @@ const MyOrderCart = ({toggleShopCart, setToggleShopCart}) => {
         />
         ))}     
       </div>
-
       <div className="myOrderCart-order">
         <p>
           <span>Total</span>
