@@ -23,8 +23,8 @@ const Orders = () => {
             key={`orderHistory-${item.shop.map(e => e.id)}`}
             price={item.price}
             articles={item.shop.length}
-           fecha={item.fecha}
-   
+            fecha={item.fecha}
+              
           />
         ))}
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import moment from 'moment'
 import { useLocalStorage } from "./useLocalStorage";
 const user = {
   name: 'francisco',
@@ -69,7 +70,7 @@ const useInitialState = () => {
     const item = [
       ...buyState,
       {
-        fecha: Date.now(),
+        fecha: moment().format("DD.MM.YY"),
         shop: items.cart,
       },
     ];

@@ -1,8 +1,9 @@
 import React from "react";
+
 import arrow from '../assets/icons/flechita.svg'
 
-const OrderItem = ({product, price , articles, fecha}) => {
-
+const OrderItem = ({ product, price, articles, fecha }) => {
+  console.log(product)
   return(
     <div className="order">
       <p>
@@ -11,6 +12,7 @@ const OrderItem = ({product, price , articles, fecha}) => {
       </p>
       <p>{price}</p>
       <img src={arrow}alt="arrow"/>
+      
   </div>
   );
 }
