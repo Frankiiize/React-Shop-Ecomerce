@@ -14,22 +14,22 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
         <img src={yardSaleLogo} alt="logo" className="headerLogo" />
         <ul>
           <li>
-            <Link to="/">All</Link>
+            <Link to="/React-Shop-Ecomerce">All</Link>
           </li>
           <li>
-            <Link to="/home/clothes">Clothes</Link>
+            <Link to="/React-Shop-Ecomerce/home/clothes">Clothes</Link>
           </li>
           <li>
-            <Link to="/home/electronics">Electronics</Link>
+            <Link to="/React-Shop-Ecomerce/home/electronics">Electronics</Link>
           </li>
           <li>
-            <Link to="/home/fornitures">Furnitures</Link>
+            <Link to="/React-Shop-Ecomerce/home/fornitures">Furnitures</Link>
           </li>
           <li>
-            <Link to="/home/toys">Toys</Link>
+            <Link to="/React-Shop-Ecomerce/home/toys">Toys</Link>
           </li>
           <li>
-            <Link to="/home/others">Others</Link>
+            <Link to="/React-Shop-Ecomerce/home/others">Others</Link>
           </li>
         </ul>
       </div>

@@ -10,11 +10,11 @@ const MenuDesktop = () => {
     <div className="desktop-menu">
     <ul>
       <li>
-        <Link to="/orders" className="desktop-menu-title">My orders</Link>
+        <Link to="/React-Shop-Ecomerce/orders" className="desktop-menu-title">My orders</Link>
       </li>
 
       <li>
-        <Link to="/myAccount">My account</Link>
+        <Link to="/React-Shop-Ecomerce/myAccount">My account</Link>
       </li>
 
       <li>
@@ -38,28 +38,28 @@ const MenuMobile = ({handleMenuMobile, user}) => {
       </div>
       <ul>
         <li>
-          <Link to="/">All</Link>
+          <Link to="/React-Shop-Ecomerce/">All</Link>
         </li>
         <li>
-          <Link to="/home/clothes">Clothes</Link>
+          <Link to="/React-Shop-Ecomerce/home/clothes">Clothes</Link>
         </li>
         <li>
-          <Link to="/home/electronics">Electronics</Link>
+          <Link to="/React-Shop-Ecomerce/home/electronics">Electronics</Link>
         </li>
         <li>
-          <Link to="/home/fornitures">Furnitures</Link>
+          <Link to="/React-Shop-Ecomerce/home/fornitures">Furnitures</Link>
         </li>
         <li>
-          <Link to="/home/toys">Toys</Link>
+          <Link to="/React-Shop-Ecomerce/home/toys">Toys</Link>
         </li>
         <li>
-          <Link to="/home/others">Others</Link>
+          <Link to="/React-Shop-Ecomerce/home/others">Others</Link>
         </li>
       </ul>
       {!user && (
         <ul>
         <li>
-          <a href="/" className="sign-out">
+          <a href="/React-Shop-Ecomerce/" className="sign-out">
             login
           </a>
         </li>
@@ -70,21 +70,21 @@ const MenuMobile = ({handleMenuMobile, user}) => {
         <>
           <ul>
             <li>
-              <Link to="/orders">My orders</Link>
+              <Link to="/React-Shop-Ecomerce/orders">My orders</Link>
             </li>
             <li>
-              <Link to="/myAccount">My account</Link>
+              <Link to="/React-Shop-Ecomerce/myAccount">My account</Link>
             </li>
           </ul>
 
           <ul>
             <li>
-              <a href="/" className="email">
+              <a href="/React-Shop-Ecomerce/" className="email">
                 platzi@example.com
               </a>
             </li>
             <li>
-              <Link to="/" className="sign-out">
+              <Link to="/React-Shop-Ecomerce/" className="sign-out">
                 Sign out
               </Link>
             </li>
