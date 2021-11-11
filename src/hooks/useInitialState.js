@@ -10,26 +10,33 @@ const initialState = {
   cart:[],
 }
 
+const cartReducer = (state, action)=> {
+  switch (action.type){
+    case 'ADD_TO_CART':
+     
+      return {
+        ...state,
+        cart:[...state.cart, action.payload]
+      };
+    case 'REMOVE_FROM_CART':
+      return { 
+        ...state,
+        cart: state.cart.filter(item => item.id !== action.payload.id)
+      };
+      default:
+        return state;
+  }
+}
+
 const useInitialState = () => {
 
   const { parseItem: parserCart } = useLocalStorage("cart", initialState);
   const { parseItem: parserBuy } = useLocalStorage("buy", []);
-  
-  const [state, setState] = React.useState(parserCart);
+  const [ cart, dispatch] = React.useReducer(cartReducer, parserCart);
+/*   const [state, setState] = React.useState(parserCart); */
 
-  /* const localStorageCart= localStorage.getItem('cart');
-  let parserCart;
 
-  
-
-  if(!localStorageCart){
-    localStorage.setItem("cart", JSON.stringify(initialState))
-    parserCart= [];
-
-  }else {
-    parserCart= JSON.parse(localStorageCart);
-  } */
-  const saveCart = (payLoad) => {
+/*   const saveCart = (payLoad) => {
     const filter = parserCart.cart.some((item) => item.id === payLoad.id)
     if(!filter){
       const cartToAdd= {
@@ -45,8 +52,8 @@ const useInitialState = () => {
       })
     } 
       
-  }
-  const removeFromCart = (payLoad) =>{
+  } */
+  /* const removeFromCart = (payLoad) =>{
     const cartAdd = {
       ...state,
       cart: state.cart.filter((item) => item.id !== payLoad.id),
@@ -58,14 +65,14 @@ const useInitialState = () => {
       cart: state.cart.filter((item) => item.id !== payLoad.id),
     })
     
-  }
+  } */
 
 
  
   const [buyState, setBuyState] = React.useState(parserBuy)
 
   const buyedItem = (items) => {
-    //debugger
+
     
     const item = [
       ...buyState,
@@ -78,35 +85,22 @@ const useInitialState = () => {
     setState(initialState);
     localStorage.setItem("cart", JSON.stringify(initialState));
     localStorage.setItem("buy",JSON.stringify(item));
-    
-    console.log(buyState);
+
   
-   
-   /*  
-    const stringfiedItem = JSON.stringify(buyedHistory);
-    
-    const cartEmpy = {
-      ...state,
-      cart: [],
-    }
  
-    setState({
-      ...state,
-      cart: []
-    })
-    localStorage.setItem("buyedHistory", stringfiedItem);
-    localStorage.setItem("cart", JSON.stringify(cartEmpy)); */
 
   }
 
   return {
-    state,
-    removeFromCart,
-    saveCart,
+    
+
+
     parserCart,
     buyState,
     setBuyState,
-    buyedItem
+    buyedItem,
+    cart,
+    dispatch,
   }
 };
 

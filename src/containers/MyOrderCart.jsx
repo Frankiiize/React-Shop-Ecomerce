@@ -8,11 +8,11 @@ import { CheckOutItem } from "../components/CheckOutItem.jsx";
 
 
 const MyOrderCart = ({toggleShopCart, setToggleShopCart}) => {
-  const {state , buyedItem} = React.useContext(AppContext);
-  
+  const { buyedItem, cart} = React.useContext(AppContext);
+
   const sumTotal = () => {
     const reducer= (previusValue, currentValue) => previusValue + currentValue.price;
-    const sum = state.cart.reduce(reducer,0);
+    const sum = cart.cart.reduce(reducer,0);
     return sum;
   }
 
@@ -33,7 +33,7 @@ const MyOrderCart = ({toggleShopCart, setToggleShopCart}) => {
         <p className="title">My order</p>
       </div>
       <div className="myOrderCart-content">
-      {state.cart.map((product) => (
+      {cart.cart.map((product) => (
         <CheckOutItem 
           product={product}
           key={`OrderItem-${product.id}`}

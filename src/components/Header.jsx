@@ -8,7 +8,7 @@ import { AppContext }  from '../context/AppContext.js'
 
 
 const Header = ({children}) => {
-  const { state } = React.useContext(AppContext);
+  const { cart } = React.useContext(AppContext);
   const isUserLog = true;
   const { mobileMenu, desktopMenu, handleMenuMobile, handleMenuDesktop } = useMenu();
   const [toggleShopCart, setToggleShopCart] = React.useState(false);
@@ -20,7 +20,7 @@ const Header = ({children}) => {
       <nav>
         {desktopMenu && <MenuDesktop  />}
         <Nav
-            cartState={state}
+            cartState={cart}
             handleMenuMobile={handleMenuMobile}
             handleMenuDesktop={handleMenuDesktop}   
             toggleShopCart={toggleShopCart}

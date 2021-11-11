@@ -8,7 +8,9 @@ import { ProductInfo } from "./ProductInfo.jsx";
 
 
 const ProducItem = ({ product }) => {
-  const {  removeFromCart , saveCart, state, parserCart } = React.useContext(AppContext);
+  
+
+  const {  removeFromCart , saveCart, state, parserCart, dispatch } = React.useContext(AppContext);
   const [ toggleProductsDetails, setToggleProductsDetails ] = React.useState(false);
   
 
@@ -17,7 +19,7 @@ const ProducItem = ({ product }) => {
 
   const handleCart = (item) => {
     //debugger
-    if(!item.added ){
+    /* if(!item.added ){
       (idItemsAdded.includes(item.id))
       ? ( item.added = false, removeFromCart(item))
       : ( item.added = true, saveCart(item))
@@ -25,12 +27,14 @@ const ProducItem = ({ product }) => {
       else {
       item.added = false;
       removeFromCart(item);
-    }
+    } */
+    dispatch({type:'ADD_TO_CART', payload: item })
   }
  
  
   return(
     <>
+
      {!!toggleProductsDetails && 
      <ProductDetails
      toggleProductsDetails={toggleProductsDetails}
@@ -51,9 +55,7 @@ const ProducItem = ({ product }) => {
         src={product.images[0]} alt={product.title}
         onClick={() => setToggleProductsDetails(!toggleProductsDetails)} 
         />
-
-        
-
+      
         <div className="productItem-info">
           <div>
             <p>{product.cantidad}</p>
