@@ -3,11 +3,11 @@ import React from "react";
 import { ProductList } from "../containers/ProductList.jsx";
 import { useGetProducts } from "../hooks/useGetProducts.js";
 
-const API = 'https://api.escuelajs.co/api/v1/products?limit=0&offset=0'
+
 
 
 const Home = () => {
-  const {products, error, loading} = useGetProducts(API);
+  const {products, error, loading} = useGetProducts();
    return (
     <>
       
@@ -21,7 +21,7 @@ const Home = () => {
 };
 
 const Clothes = () => {
-  const {products, error, loading} = useGetProducts(API);
+  const {products, error, loading} = useGetProducts();
   const categoriesClothes = products.filter( (product) => product.category.id === 1 );
   return(
     <ProductList 
@@ -32,7 +32,7 @@ const Clothes = () => {
   );
 }
 const Electronics = () => {
-  const {products, error, loading} = useGetProducts(API);
+  const {products, error, loading} = useGetProducts();
   const categoriesElectronics = products.filter( (product) => product.category.id === 2 );
 
   return(
@@ -44,7 +44,7 @@ const Electronics = () => {
   );
 }
 const Forniture = () => {
-  const {products, error, loading} = useGetProducts(API);
+  const {products, error, loading} = useGetProducts();
   const categoriesForniture = products.filter( (product) => product.category.id === 3 );
 
   return(
@@ -56,7 +56,7 @@ const Forniture = () => {
   );
 }
 const Toys = () => {
-  const {products, error, loading} = useGetProducts(API);
+  const {products, error, loading} = useGetProducts();
   const categoriesToys = products.filter( (product) => product.category.id === 4 );
 
   return(
@@ -68,7 +68,7 @@ const Toys = () => {
   );
 }
 const Others = () => {
-  const {products, error, loading} = useGetProducts(API);
+  const {products, error, loading} = useGetProducts();
   const categoriOters = products.filter( (product) => product.category.id === 5 );
 
   return(
