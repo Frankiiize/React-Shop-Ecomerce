@@ -41,8 +41,8 @@ const cartReducer = (state, action)=> {
       };
     case 'RESET': 
       return init(action.payload)
-      default:
-        return state;
+    default:
+      return state;
   }
 }
 
@@ -51,37 +51,7 @@ const useInitialState = () => {
   const { parseItem: parserCart } = useLocalStorage("cart", initialState);
   const { parseItem: parserBuy } = useLocalStorage("buy", []);
   const [ cart, dispatch] = React.useReducer(cartReducer, parserCart, init);
-/*   const [state, setState] = React.useState(parserCart); */
-/*   const saveCart = (payLoad) => {
-    const filter = parserCart.cart.some((item) => item.id === payLoad.id)
-    if(!filter){
-      const cartToAdd= {
-        ...state,
-        cart:[...state.cart, payLoad],
-      }
-      const stringfiedPayLOad = JSON.stringify(cartToAdd);
-      localStorage.setItem('cart', stringfiedPayLOad);
 
-      setState({
-        ...state,
-        cart: [...state.cart, payLoad],
-      })
-    } 
-      
-  } */
-  /* const removeFromCart = (payLoad) =>{
-    const cartAdd = {
-      ...state,
-      cart: state.cart.filter((item) => item.id !== payLoad.id),
-    }
-    const stringfiedPayLOad = JSON.stringify(cartAdd);
-    localStorage.setItem('cart', stringfiedPayLOad);
-    setState({
-      ...state,
-      cart: state.cart.filter((item) => item.id !== payLoad.id),
-    })
-    
-  } */
   const [buyState, setBuyState] = React.useState(parserBuy)
 
   const buyedItem = (items) => {

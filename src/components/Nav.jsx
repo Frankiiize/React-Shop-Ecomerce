@@ -14,7 +14,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
         <img src={yardSaleLogo} alt="logo" className="headerLogo" />
         <ul>
           <li>
-            <Link to="/React-Shop-Ecomerce">All</Link>
+            <Link to="/">All</Link>
           </li>
           <li>
             <Link to="/React-Shop-Ecomerce/home/clothes">Clothes</Link>

@@ -38,7 +38,7 @@ const MenuMobile = ({handleMenuMobile, user}) => {
       </div>
       <ul>
         <li>
-          <Link to="/React-Shop-Ecomerce/">All</Link>
+          <Link to="/">All</Link>
         </li>
         <li>
           <Link to="/React-Shop-Ecomerce/home/clothes">Clothes</Link>
