@@ -12,30 +12,22 @@ const useGetProducts = (API) => {
   const { parserCart } = useContext(AppContext)
 
   
-  useEffect( async () => {
-    
-    try {
-      const data = await fetch(API);
-      const res = await data.json();
-      res.map((item) => (item.added = null))
+  useEffect(() => {
+    async function fetchProducts () {
+      try {
+        const data = await fetch(API);
+        const res = await data.json();
+        res.map((item) => (item.added = false))
+  
+        setProducts(res);
+        setLoading(false);
+       
+      }catch (error){
+        setError(error);
+      }
 
-      setProducts(res);
-      setLoading(false);
-     
-    }catch (error){
-      setError(error);
-      setTimeout(async () => {
-        try{
-          const data = await fetch(API);
-          const res = await data.json();
-          res.map((item) => (item.added = null))
-          setProducts(res);
-          setLoading(false);
-        } catch (error) {
-          setError(error)
-        }
-      },100)
     }
+    fetchProducts();
   },[]);
 
   return { products ,error, loading};

@@ -9,20 +9,38 @@ const user = {
 const initialState = {
   cart:[],
 }
+const init = () => {
+  
+  return {
+    cart:[]
+  }
+}
+
 
 const cartReducer = (state, action)=> {
   switch (action.type){
     case 'ADD_TO_CART':
-     
+      const cartAdd = {
+        cart:[...state.cart, action.payload]
+      }
+      const storageCart = JSON.stringify(cartAdd)
+      localStorage.setItem('cart', storageCart)
       return {
         ...state,
         cart:[...state.cart, action.payload]
       };
     case 'REMOVE_FROM_CART':
+      const cartItemRemove = {
+        cart: state.cart.filter(item => item.id !== action.payload.id)
+      };
+      const removedStorageCart = JSON.stringify(cartItemRemove);
+      localStorage.setItem('cart', removedStorageCart )
       return { 
         ...state,
         cart: state.cart.filter(item => item.id !== action.payload.id)
       };
+    case 'RESET': 
+      return init(action.payload)
       default:
         return state;
   }
@@ -32,10 +50,8 @@ const useInitialState = () => {
 
   const { parseItem: parserCart } = useLocalStorage("cart", initialState);
   const { parseItem: parserBuy } = useLocalStorage("buy", []);
-  const [ cart, dispatch] = React.useReducer(cartReducer, parserCart);
+  const [ cart, dispatch] = React.useReducer(cartReducer, parserCart, init);
 /*   const [state, setState] = React.useState(parserCart); */
-
-
 /*   const saveCart = (payLoad) => {
     const filter = parserCart.cart.some((item) => item.id === payLoad.id)
     if(!filter){
@@ -66,14 +82,9 @@ const useInitialState = () => {
     })
     
   } */
-
-
- 
   const [buyState, setBuyState] = React.useState(parserBuy)
 
   const buyedItem = (items) => {
-
-    
     const item = [
       ...buyState,
       {
@@ -82,19 +93,12 @@ const useInitialState = () => {
       },
     ];
     setBuyState(item);
-    setState(initialState);
+    dispatch({type: 'RESET', payload: initialState})
     localStorage.setItem("cart", JSON.stringify(initialState));
     localStorage.setItem("buy",JSON.stringify(item));
-
-  
- 
-
   }
 
   return {
-    
-
-
     parserCart,
     buyState,
     setBuyState,

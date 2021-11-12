@@ -46,7 +46,7 @@ const MyOrderCart = ({toggleShopCart, setToggleShopCart}) => {
         </p>
         <p>{sumTotal()}</p>
       </div>
-      <button onClick={() => handleCheckout(state)} className="primary-button myOrderCart-btn">
+      <button onClick={() => handleCheckout(cart)} className="primary-button myOrderCart-btn">
         Checkout
       </button>
   </aside>

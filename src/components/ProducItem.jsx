@@ -10,31 +10,28 @@ import { ProductInfo } from "./ProductInfo.jsx";
 const ProducItem = ({ product }) => {
   
 
-  const {  removeFromCart , saveCart, state, parserCart, dispatch } = React.useContext(AppContext);
+  const { dispatch, cart } = React.useContext(AppContext);
   const [ toggleProductsDetails, setToggleProductsDetails ] = React.useState(false);
-  
 
-  const itemsParserCart = parserCart.cart.filter(item => item.added)
-  const idItemsAdded = itemsParserCart.map((item) => item.id)
+
+  const itemsAddedToCart = cart.cart.filter(item => item.added)
+
+  const idItemsAdded = itemsAddedToCart.map((item) => item.id)
+
 
   const handleCart = (item) => {
-    //debugger
-    /* if(!item.added ){
+    if(!item.added ){
       (idItemsAdded.includes(item.id))
-      ? ( item.added = false, removeFromCart(item))
-      : ( item.added = true, saveCart(item))
-      } 
-      else {
+      ? ( item.added = false, dispatch({type: 'REMOVE_FROM_CART', payload: item}))
+      : ( item.added = true, dispatch({type:'ADD_TO_CART', payload: item }))
+    } 
+    else {
       item.added = false;
-      removeFromCart(item);
-    } */
-    dispatch({type:'ADD_TO_CART', payload: item })
+      dispatch({type: 'REMOVE_FROM_CART', payload: item});
+    }
   }
- 
- 
   return(
     <>
-
      {!!toggleProductsDetails && 
      <ProductDetails
      toggleProductsDetails={toggleProductsDetails}
@@ -48,14 +45,12 @@ const ProducItem = ({ product }) => {
       /> 
      </ProductDetails>
      }
-    
     <div className="productItem">
         <img
         loading="lazy" 
         src={product.images[0]} alt={product.title}
         onClick={() => setToggleProductsDetails(!toggleProductsDetails)} 
         />
-      
         <div className="productItem-info">
           <div>
             <p>{product.cantidad}</p>

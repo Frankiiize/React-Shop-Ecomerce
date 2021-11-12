@@ -5,8 +5,10 @@ import closeIcon from '../assets/icons/icon_close.png'
 
 
 const CheckOutItem = ({product , disabled}) => {
-  const {removeFromCart, dispatch} = React.useContext(AppContext);
+
+  const { dispatch } = React.useContext(AppContext);
   const handleRemove = (item) => {
+    item.added = false
     dispatch({type:'REMOVE_FROM_CART',  payload: item})
   }
  
