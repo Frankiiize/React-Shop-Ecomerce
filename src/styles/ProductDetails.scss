@@ -10,7 +10,7 @@
   background-color: var(--white);
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
-
+  z-index: 100;
 }
 .product-detail-close {
   display: flex;

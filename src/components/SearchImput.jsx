@@ -1,6 +1,7 @@
 import React from "react";
 import { ProductsContext } from "../context/ProductContex";
 import '../styles/searchImput.scss'
+import searchIcon from '../assets/icons/Shape.svg'
 
 
 const SearchImput = () => {
@@ -11,7 +12,14 @@ const SearchImput = () => {
   }
   return(
     <section className='searchContainer' >
-      <input onChange={handleSearchValue} value={search} className='searchContainer__searchImput' type='text' />
+      <div className='searchContainer__searchImput'>
+        <img src={searchIcon} />
+        <input 
+          onChange={handleSearchValue} 
+          value={search} type='text' 
+          placeholder='Searc Product' 
+          />
+      </div>
     </section>
   );
 }

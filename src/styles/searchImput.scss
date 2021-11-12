@@ -3,8 +3,39 @@
   height: 60px;
   display: flex;
   align-items: center;
+  padding: 0 24px;
   position: fixed;
   top: 61px;
   background-color: var(--white);
-  z-index: 1;
+  z-index: 50;
+  &__searchImput{
+    min-width: 339px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid var(--text-input-field) ;
+    border-radius: 10px;
+    background-color: var(--text-input-field);
+    img {
+      padding-left: 20px;
+    }
+    input {
+      width: 100%;
+      height: inherit;
+      padding-left: 10px;
+      background-color: transparent;
+      border: none;
+      font-size: var(--md);
+      color: var(--very-light-pink);
+    }
+    input:focus {
+      outline: none;
+    }
+    input::placeholder {
+      color: var(--very-light-pink);
+    }
+    
+  }
+  
 }
