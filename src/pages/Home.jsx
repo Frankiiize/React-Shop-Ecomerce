@@ -2,12 +2,13 @@ import React from "react";
 
 import { ProductList } from "../containers/ProductList.jsx";
 import { useGetProducts } from "../hooks/useGetProducts.js";
+import { ProductsContext } from "../context/ProductContex.js";
 
 
 
 
 const Home = () => {
-  const {products, error, loading} = useGetProducts();
+  const { filterProducts: products, error, loading,  } = React.useContext(ProductsContext)
    return (
     <>
       
@@ -21,7 +22,7 @@ const Home = () => {
 };
 
 const Clothes = () => {
-  const {products, error, loading} = useGetProducts();
+  const { filterProducts: products, error, loading,  } = React.useContext(ProductsContext)
   const categoriesClothes = products.filter( (product) => product.category.id === 1 );
   return(
     <ProductList 
@@ -32,7 +33,7 @@ const Clothes = () => {
   );
 }
 const Electronics = () => {
-  const {products, error, loading} = useGetProducts();
+  const { filterProducts: products, error, loading,  } = React.useContext(ProductsContext)
   const categoriesElectronics = products.filter( (product) => product.category.id === 2 );
 
   return(
@@ -44,7 +45,7 @@ const Electronics = () => {
   );
 }
 const Forniture = () => {
-  const {products, error, loading} = useGetProducts();
+  const { filterProducts: products, error, loading,  } = React.useContext(ProductsContext)
   const categoriesForniture = products.filter( (product) => product.category.id === 3 );
 
   return(
@@ -56,7 +57,7 @@ const Forniture = () => {
   );
 }
 const Toys = () => {
-  const {products, error, loading} = useGetProducts();
+  const { filterProducts: products, error, loading,  } = React.useContext(ProductsContext)
   const categoriesToys = products.filter( (product) => product.category.id === 4 );
 
   return(
@@ -68,7 +69,7 @@ const Toys = () => {
   );
 }
 const Others = () => {
-  const {products, error, loading} = useGetProducts();
+  const { filterProducts: products, error, loading,  } = React.useContext(ProductsContext)
   const categoriOters = products.filter( (product) => product.category.id === 5 );
 
   return(

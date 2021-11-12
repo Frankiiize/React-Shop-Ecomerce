@@ -15,8 +15,6 @@ const init = () => {
     cart:[]
   }
 }
-
-
 const cartReducer = (state, action)=> {
   switch (action.type){
     case 'ADD_TO_CART':
@@ -45,7 +43,6 @@ const cartReducer = (state, action)=> {
       return state;
   }
 }
-
 const useInitialState = () => {
 
   const { parseItem: parserCart } = useLocalStorage("cart", initialState);

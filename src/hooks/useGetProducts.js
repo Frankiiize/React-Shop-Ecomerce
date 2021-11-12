@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
-import axios  from "axios";
 const API = 'https://api.escuelajs.co/api/v1/products?limit=0&offset=0'
 
 const useGetProducts = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [ search, setSeacrch ] = React.useState('');
   useEffect(() => {
     async function fetchProducts () {
       try {
@@ -20,10 +20,16 @@ const useGetProducts = () => {
     }
     fetchProducts();
   },[]);
+  const filterProducts = products.filter((product) => {
+    return product.title.toLowerCase().includes(search.toLowerCase())
+  })
   return {
     products,
+    filterProducts,
     error,
-    loading
+    loading,
+    search,
+    setSeacrch
   };
 }
 export { useGetProducts };
