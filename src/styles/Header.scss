@@ -18,6 +18,11 @@ nav {
   width: 100px;
   display: flex;
 }
+.navbar-left a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .navbar-left ul,
 .navbar-right ul {
   list-style: none;

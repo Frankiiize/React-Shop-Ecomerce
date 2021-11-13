@@ -8,10 +8,11 @@
   padding: 24px;
   position: fixed;
   z-index: 2;
-  top: 0px;
+  top: 60px;
   bottom: 0;
   background-color: var(--white);
   border-bottom: 1px solid var(--very-light-pink);
+  z-index: 100;
 }
 .mobile-menu-closeIcon{
   display: flex;

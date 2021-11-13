@@ -5,16 +5,16 @@ import '../styles/MenuMobile.scss';
 
 import closeIcon from '../assets/icons/icon_close.png'
 
-const MenuDesktop = () => {
+const MenuDesktop = ({setDesktopMenu}) => {
   return(
     <div className="desktop-menu">
     <ul>
       <li>
-        <Link to="/React-Shop-Ecomerce/orders" className="desktop-menu-title">My orders</Link>
+        <Link onClick={() => setDesktopMenu(false)} to="/React-Shop-Ecomerce/orders" className="desktop-menu-title">My orders</Link>
       </li>
 
       <li>
-        <Link to="/React-Shop-Ecomerce/myAccount">My account</Link>
+        <Link onClick={() => setDesktopMenu(false)} to="/React-Shop-Ecomerce/myAccount">My account</Link>
       </li>
 
       <li>
@@ -25,7 +25,7 @@ const MenuDesktop = () => {
   );
 }
 
-const MenuMobile = ({handleMenuMobile, user}) => {
+const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart}) => {
   return (
     <div className="mobile-menu">
       <div className="mobile-menu-closeIcon">
@@ -38,22 +38,22 @@ const MenuMobile = ({handleMenuMobile, user}) => {
       </div>
       <ul>
         <li>
-          <Link to="/">All</Link>
+          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/">All</Link>
         </li>
         <li>
-          <Link to="/React-Shop-Ecomerce/home/clothes">Clothes</Link>
+          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/home/clothes">Clothes</Link>
         </li>
         <li>
-          <Link to="/React-Shop-Ecomerce/home/electronics">Electronics</Link>
+          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/home/electronics">Electronics</Link>
         </li>
         <li>
-          <Link to="/React-Shop-Ecomerce/home/fornitures">Furnitures</Link>
+          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/home/fornitures">Furnitures</Link>
         </li>
         <li>
-          <Link to="/React-Shop-Ecomerce/home/toys">Toys</Link>
+          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/home/toys">Toys</Link>
         </li>
         <li>
-          <Link to="/React-Shop-Ecomerce/home/others">Others</Link>
+          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/home/others">Others</Link>
         </li>
       </ul>
       {!user && (
@@ -70,10 +70,10 @@ const MenuMobile = ({handleMenuMobile, user}) => {
         <>
           <ul>
             <li>
-              <Link to="/React-Shop-Ecomerce/orders">My orders</Link>
+              <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/orders">My orders</Link>
             </li>
             <li>
-              <Link to="/React-Shop-Ecomerce/myAccount">My account</Link>
+              <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/myAccount">My account</Link>
             </li>
           </ul>
 

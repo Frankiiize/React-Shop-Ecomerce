@@ -19,6 +19,7 @@
 }
 
 .myOrderCart__title-container {
+  padding: 5px;
   display: flex;
   align-content: center;
   .title {
@@ -30,9 +31,9 @@
     transform: rotate(180deg);
     margin-right: 14px;
   }
-  img:hover{
-    cursor: pointer;
-  }
+}
+.myOrderCart__title-container:hover{
+  cursor: pointer;
 }
 .myOrderCart-content{
   width: 100%;

@@ -10,21 +10,40 @@ import { AppContext }  from '../context/AppContext.js'
 const Header = ({children}) => {
   const { cart } = React.useContext(AppContext);
   const isUserLog = true;
-  const { mobileMenu, desktopMenu, handleMenuMobile, handleMenuDesktop } = useMenu();
+  const { mobileMenu, desktopMenu, handleMenuMobile, handleMenuDesktop, setMobileMenu, setDesktopMenu } = useMenu();
   const [toggleShopCart, setToggleShopCart] = React.useState(false);
   return (
     <>
-    {toggleShopCart && <MyOrderCart toggleShopCart={toggleShopCart} setToggleShopCart={setToggleShopCart} />}
-    {mobileMenu && <MenuMobile handleMenuMobile={handleMenuMobile} user={isUserLog} />}
+    {toggleShopCart && 
+      <MyOrderCart 
+        toggleShopCart={toggleShopCart} 
+        setToggleShopCart={setToggleShopCart} 
+        setDesktopMenu={setDesktopMenu}
+      />
+    }
+    { mobileMenu && 
+      <MenuMobile 
+        handleMenuMobile={handleMenuMobile} 
+        user={isUserLog} 
+        setMobileMenu={setMobileMenu}
+        setToggleShopCart={setToggleShopCart}
+      />
+      }
    
       <nav>
-        {desktopMenu && <MenuDesktop  />}
+        {desktopMenu && 
+        <MenuDesktop  
+          setDesktopMenu={setDesktopMenu}
+        />
+        }
         <Nav
             cartState={cart}
             handleMenuMobile={handleMenuMobile}
             handleMenuDesktop={handleMenuDesktop}   
             toggleShopCart={toggleShopCart}
             setToggleShopCart={setToggleShopCart}
+            setDesktopMenu={setDesktopMenu}
+            setMobileMenu={setMobileMenu}
         />
 
           {children}

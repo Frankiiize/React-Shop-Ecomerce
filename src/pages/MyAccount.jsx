@@ -15,7 +15,7 @@ const MyAccount = () => {
 
   return (
     <>
-      <Header />
+   
       {!!showEdit 
       ? <InfoAccount handleEdit={handleEdit} />
       : <EditAccount handleEdit={handleEdit} />} 

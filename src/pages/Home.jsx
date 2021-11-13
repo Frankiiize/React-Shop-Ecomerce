@@ -3,6 +3,7 @@ import React from "react";
 import { ProductList } from "../containers/ProductList.jsx";
 import { useGetProducts } from "../hooks/useGetProducts.js";
 import { ProductsContext } from "../context/ProductContex.js";
+import { MainContainer } from "../containers/MainContainer.jsx";
 
 
 
@@ -11,12 +12,13 @@ const Home = () => {
   const { filterProducts: products, error, loading,  } = React.useContext(ProductsContext)
    return (
     <>
-      
-      <ProductList
-        products={products}
-        error= {error}
-        loading= {loading}
-       />
+       <MainContainer>
+         <ProductList 
+            products={products}
+            error= {error}
+            loading= {loading}
+         />
+       </MainContainer>
     </>
   );
 };
@@ -24,24 +26,28 @@ const Home = () => {
 const Clothes = () => {
   const { filterProducts: products, error, loading,  } = React.useContext(ProductsContext)
   const categoriesClothes = products.filter( (product) => product.category.id === 1 );
-  return(
-    <ProductList 
-      products={categoriesClothes}
-      error= {error}
-      loading= {loading}
-    />
-  );
+    return(
+      <MainContainer >
+        <ProductList 
+          products={categoriesClothes}
+          error= {error}
+          loading= {loading}
+        />
+      </MainContainer>
+    );
 }
 const Electronics = () => {
   const { filterProducts: products, error, loading,  } = React.useContext(ProductsContext)
   const categoriesElectronics = products.filter( (product) => product.category.id === 2 );
 
   return(
-    <ProductList 
-      products={categoriesElectronics}
-      error= {error}
-      loading= {loading}
-    />
+    <MainContainer >
+      <ProductList 
+        products={categoriesElectronics}
+        error= {error}
+        loading= {loading}
+      />
+    </MainContainer>
   );
 }
 const Forniture = () => {
@@ -49,11 +55,13 @@ const Forniture = () => {
   const categoriesForniture = products.filter( (product) => product.category.id === 3 );
 
   return(
-    <ProductList 
-      products={categoriesForniture}
-      error= {error}
-      loading= {loading}
-    />
+    <MainContainer>
+      <ProductList 
+        products={categoriesForniture}
+        error= {error}
+        loading= {loading}
+      />
+    </MainContainer>
   );
 }
 const Toys = () => {
@@ -61,11 +69,13 @@ const Toys = () => {
   const categoriesToys = products.filter( (product) => product.category.id === 4 );
 
   return(
-    <ProductList 
-      products={categoriesToys}
-      error= {error}
-      loading= {loading}
-    />
+    <MainContainer>
+      <ProductList 
+        products={categoriesToys}
+        error= {error}
+        loading= {loading}
+      />
+    </MainContainer>
   );
 }
 const Others = () => {
@@ -73,11 +83,13 @@ const Others = () => {
   const categoriOters = products.filter( (product) => product.category.id === 5 );
 
   return(
-    <ProductList 
-      products={categoriOters}
-      error= {error}
-      loading= {loading}
-    />
+    <MainContainer>
+      <ProductList 
+        products={categoriOters}
+        error= {error}
+        loading= {loading}
+      />
+    </MainContainer>
   );
 }
 

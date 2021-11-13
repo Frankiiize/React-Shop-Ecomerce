@@ -1,11 +1,12 @@
 import React from "react";
-
+import { SearchImput } from "../components/SearchImput.jsx";
 const MainContainer = ({children}) => {
-  return (() => {
+  return (
     <section className="main-container">
-      {children}
+      <SearchImput />
+        {children}
     </section>
-  });
+  )
 }
 
 export { MainContainer };

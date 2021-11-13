@@ -15,7 +15,7 @@ const ProductList = ({products, error ,loading}) => {
   return(
     <>
       
-      <section className="main-container">
+ 
         {toggleProductsDetails && <ProductDetails products={products} />}
         <div className="productList">
         {error && <ErrorState />}
@@ -31,7 +31,7 @@ const ProductList = ({products, error ,loading}) => {
           
           ))}
         </div>
-      </section>
+      
     </>
   );
 }

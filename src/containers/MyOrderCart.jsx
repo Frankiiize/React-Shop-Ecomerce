@@ -28,8 +28,8 @@ const MyOrderCart = ({toggleShopCart, setToggleShopCart}) => {
   return (
     <aside className="myOrderCart">
 
-      <div className="myOrderCart__title-container">
-        <img onClick={() => setToggleShopCart(!toggleShopCart)} src={arrow} alt="arrow" />
+      <div onClick={() => setToggleShopCart(!toggleShopCart)}  className="myOrderCart__title-container">
+        <img src={arrow} alt="arrow" />
         <p className="title">My order</p>
       </div>
       <div className="myOrderCart-content">
