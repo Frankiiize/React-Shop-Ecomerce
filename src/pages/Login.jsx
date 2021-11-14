@@ -13,6 +13,7 @@ const Login = () => {
       username: formData.get('email'),
       password: formData.get('password')
     }
+    console.log(data)
     if(regex.test(data.username)){
       console.group();
       console.log(data);

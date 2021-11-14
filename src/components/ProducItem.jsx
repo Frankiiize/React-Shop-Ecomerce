@@ -20,6 +20,7 @@ const ProducItem = ({ product }) => {
 
 
   const handleCart = (item) => {
+    
     if(!item.added ){
       (idItemsAdded.includes(item.id))
       ? ( item.added = false, dispatch({type: 'REMOVE_FROM_CART', payload: item}))

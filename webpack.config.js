@@ -12,6 +12,7 @@ module.exports = {
     hashFunction: "xxhash64",
     publicPath: "/",
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [
 			{

@@ -1,19 +1,14 @@
 import React from "react";
 import moment from 'moment'
 import { useLocalStorage } from "./useLocalStorage";
-const user = {
-  name: 'francisco',
-  lasteName: 'jimenez'
-}
+const user = {}
 
 const initialState = {
   cart:[],
 }
-const init = () => {
+const init = (initialState) => {
   
-  return {
-    cart:[]
-  }
+  return initialState;
 }
 const cartReducer = (state, action)=> {
   switch (action.type){
@@ -45,7 +40,7 @@ const cartReducer = (state, action)=> {
 }
 const useInitialState = () => {
 
-  const { parseItem: parserCart } = useLocalStorage("cart", initialState);
+  const { parseItem: parserCart } = useLocalStorage("cart", init(initialState));
   const { parseItem: parserBuy } = useLocalStorage("buy", []);
   const [ cart, dispatch] = React.useReducer(cartReducer, parserCart, init);
 
@@ -72,6 +67,7 @@ const useInitialState = () => {
     buyedItem,
     cart,
     dispatch,
+    user
   }
 };
 
