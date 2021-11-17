@@ -15,6 +15,8 @@ import { AppContext }  from '../context/AppContext.js';
 import { ProductsContext } from '../context/ProductContex';
 import { useInitialState } from '../hooks/useInitialState.js'
 import { useGetProducts } from '../hooks/useGetProducts';
+import { ProviderAuth } from '../context/AuthContext.js';
+import { PrivateRoute } from '../containers/PrivateRoutes.jsx';
 
 
 const localLanguaje = window.navigator.language.split("-")[0]
@@ -27,24 +29,32 @@ const App = () => {
     <AppContext.Provider value={initialState}>
       <ProductsContext.Provider value={getProducts}>
         <IntlProvider locale={localLanguaje}>
-          <BrowserRouter>
-            <Layaout>
-              <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/React-Shop-Ecomerce/home/clothes" component={Clothes}/>     
-                <Route exact path="/React-Shop-Ecomerce/home/electronics" component={Electronics}/>     
-                <Route exact path="/React-Shop-Ecomerce/home/fornitures" component={Forniture}/>     
-                <Route exact path="/React-Shop-Ecomerce/home/toys" component={Toys}/>     
-                <Route exact path="/React-Shop-Ecomerce/home/others" component={Others}/>     
-                <Route exact path="/React-Shop-Ecomerce/login" component={Login}/>
-                <Route exact path="/React-Shop-Ecomerce/newPassword" component={NewPassword}/>
-                <Route exact path="/React-Shop-Ecomerce/myAccount" component={MyAccount} />
-                <Route exact path="/React-Shop-Ecomerce/createAccount" component={CreateAccount}/>
-                <Route exact path="/React-Shop-Ecomerce/orders" component={Orders}/>
-                <Route path="*" component={NotFound}/> 
-              </Switch>
-            </Layaout>
-          </BrowserRouter>
+          <ProviderAuth>
+            <BrowserRouter>
+              <Layaout>
+                <Switch>
+                  <Route exact path="/" component={Home}/>
+                  <Route exact path="/React-Shop-Ecomerce/home/clothes" component={Clothes}/>     
+                  <Route exact path="/React-Shop-Ecomerce/home/electronics" component={Electronics}/>     
+                  <Route exact path="/React-Shop-Ecomerce/home/fornitures" component={Forniture}/>     
+                  <Route exact path="/React-Shop-Ecomerce/home/toys" component={Toys}/>     
+                  <Route exact path="/React-Shop-Ecomerce/home/others" component={Others}/>     
+                  <Route exact path="/login" component={Login}/>
+                  <Route exact path="/React-Shop-Ecomerce/newPassword" component={NewPassword}/>
+                  <Route exact path="/React-Shop-Ecomerce/createAccount" component={MyAccount}/>
+                  <PrivateRoute path="/React-Shop-Ecomerce/orders">
+                    <Orders/>
+                  </PrivateRoute>
+                  <PrivateRoute path="/React-Shop-Ecomerce/myAccount">
+                    <MyAccount />
+                  </PrivateRoute>
+                 {/*  <Route exact path="/React-Shop-Ecomerce/createAccount" component={CreateAccount}/>
+                  <Route exact path="/React-Shop-Ecomerce/myAccount" component={MyAccount} /> */}
+                  <Route path="*" component={NotFound}/> 
+                </Switch>
+              </Layaout>
+            </BrowserRouter>
+          </ProviderAuth>
         </IntlProvider>
       </ProductsContext.Provider>
     </AppContext.Provider>

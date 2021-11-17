@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import '../styles/Header.scss'
 import { MenuDesktop, MenuMobile } from "./Menu.jsx";
 import { Nav } from "./Nav.jsx";
 import { useMenu } from "../hooks/useMenu.js";
 import { MyOrderCart } from "../containers/MyOrderCart.jsx";
 import { AppContext }  from '../context/AppContext.js'
+import { authContext } from "../context/AuthContext";
+import { useHistory } from "react-router-dom";
 
 
 const Header = ({children}) => {
+  const history = useHistory()
   const { cart } = React.useContext(AppContext);
-  const isUserLog = true;
   const { mobileMenu, desktopMenu, handleMenuMobile, handleMenuDesktop, setMobileMenu, setDesktopMenu } = useMenu();
   const [toggleShopCart, setToggleShopCart] = React.useState(false);
+  const { user, signout } = useContext(authContext);
+  const handleSignOut = () =>{
+  
+    signout(() => {
+      history.push("/");
+    });
+  
+  }
   return (
     <>
     {toggleShopCart && 
@@ -24,15 +34,17 @@ const Header = ({children}) => {
     { mobileMenu && 
       <MenuMobile 
         handleMenuMobile={handleMenuMobile} 
-        user={isUserLog} 
         setMobileMenu={setMobileMenu}
         setToggleShopCart={setToggleShopCart}
+        user={user}
+        handleSignOut={handleSignOut}
       />
       }
    
       <nav>
         {desktopMenu && 
         <MenuDesktop  
+          handleSignOut={handleSignOut}
           setDesktopMenu={setDesktopMenu}
         />
         }
@@ -44,6 +56,7 @@ const Header = ({children}) => {
             setToggleShopCart={setToggleShopCart}
             setDesktopMenu={setDesktopMenu}
             setMobileMenu={setMobileMenu}
+            user={user}
         />
 
           {children}

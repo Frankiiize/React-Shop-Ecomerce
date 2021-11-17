@@ -6,7 +6,7 @@ import iconShoppingCard from '../assets/icons/icon_shopping_cart.svg'
 import yardSaleLogo from '../assets/logos/logo_yard_sale.svg'
 import { useMenu } from "../hooks/useMenu";
 
-const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, setToggleShopCart, setDesktopMenu, setMobileMenu }) => {
+const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, setToggleShopCart, setDesktopMenu, setMobileMenu, user }) => {
 
   return (
     <>
@@ -39,10 +39,18 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
 
       <div className="navbar-right">
         <ul>
-          <li onClick={handleMenuDesktop} className="navbar-email">
-            <p>platzi@example.com</p>
-            <i className="navbar-email-arrowDown"></i>
-          </li>
+        {!!user
+          ? (
+            <li onClick={handleMenuDesktop} className="navbar-email">
+              <p>platzi@example.com</p>
+              <i className="navbar-email-arrowDown"></i>
+            </li>
+            )
+          : (
+            <Link to="/login">Sign in</Link>
+            )
+        }
+          
           <li className="navbar-shopping-cart" onClick={() => {setToggleShopCart(!toggleShopCart); setMobileMenu(false), setDesktopMenu(false)}} >
             <img src={iconShoppingCard} alt="shopping cart" />
             {cartState.cart.length > 0 
