@@ -57,7 +57,7 @@ const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,ha
         </li>
       </ul>
       {!!user 
-        ? (<UserLogIn handleSignOut={handleSignOut} handleMenuMobile={handleMenuMobile} />)
+        ? (<UserLogIn handleSignOut={handleSignOut} handleMenuMobile={handleMenuMobile} setMobileMenu={setMobileMenu} setToggleShopCart={setToggleShopCart}/>)
         : (<NoUserLogin handleMenuMobile={handleMenuMobile} />)
       }
      
@@ -76,7 +76,7 @@ const NoUserLogin = ({handleMenuMobile}) => {
   );
 }
 
-const UserLogIn = ({handleSignOut, handleMenuMobile}) => {
+const UserLogIn = ({handleSignOut, handleMenuMobile, setMobileMenu, setToggleShopCart}) => {
   return(
     <>
       <ul>

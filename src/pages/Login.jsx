@@ -4,7 +4,7 @@ import logo from '../assets/logos/logo_yard_sale.svg'
 import {authContext} from '../context/AuthContext.js'
 import { useHistory, useLocation } from "react-router-dom";
 const Login = () => {
-  let { signin, signout, user } = useContext(authContext)
+  let { signin, signout, user, error } = useContext(authContext)
   let history = useHistory();
   let location = useLocation()
   let { from } = location.state || { from: { pathname: "/" } };
@@ -14,12 +14,10 @@ const Login = () => {
 
   const login = (ev) => {
     ev.preventDefault()
-    signin(() => {
-      history.push(from)
-    });
+  
   }
 
-  /* const handleSubmit = (ev) => {
+  const handleSubmit = (ev) => {
     ev.preventDefault();
     const formData = new FormData(formulario.current);//current para acceder a los datos
     const data = {
@@ -28,13 +26,13 @@ const Login = () => {
     }
     console.log(data)
     if(regex.test(data.username)){
-      console.group();
-      console.log(data);
-      console.log("datos validos")
+      const changePath = () => history.push(from)
+      signin(changePath, data.username, data.password)
+     
     }else {
       console.log("email invalido");
     }
-  } */
+  }
   return (
     <div className="login-login">
     <div className="form-container">
@@ -48,7 +46,7 @@ const Login = () => {
         <input autoComplete="current-password" name="password" type="password" id="password" placeholder="*********" className="input input-password"/>
 
         <button 
-          onClick={login}
+          onClick={handleSubmit}
           className="primary-button login-button">
           login
         </button>
@@ -57,6 +55,7 @@ const Login = () => {
 
       <button className="secondary-button signup-button">Sign up</button>
     </div>
+    {error && (<p>Error</p>)}
   </div>
   );
 }
