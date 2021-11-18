@@ -3,7 +3,7 @@ import {IntlProvider} from 'react-intl'
 import '../styles/global.css'
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import { Layaout } from '../containers/Layaout.jsx';
-import { Clothes, Electronics, Forniture, Home, Toys, Others } from '../pages/Home.jsx';
+import { Home,  Categories } from '../pages/Home.jsx';
 import { NotFound } from '../pages/NotFound.jsx';
 import { NewPassword } from '../pages/NewPassword.jsx';
 import { Login } from '../pages/Login.jsx';
@@ -35,11 +35,10 @@ const App = () => {
                 <Switch>
                   <Route exact path="/" component={Home}/>
                   <Route exact path="/login" component={Login}/>
-                  <Route exact path="/React-Shop-Ecomerce/home/clothes" component={Clothes}/>     
-                  <Route exact path="/React-Shop-Ecomerce/home/electronics" component={Electronics}/>     
-                  <Route exact path="/React-Shop-Ecomerce/home/fornitures" component={Forniture}/>     
-                  <Route exact path="/React-Shop-Ecomerce/home/toys" component={Toys}/>     
-                  <Route exact path="/React-Shop-Ecomerce/home/others" component={Others}/>     
+                  <Route path="/categories/:id" >
+                    <Categories
+                    />
+                  </Route>  
                   <Route exact path="/React-Shop-Ecomerce/newPassword" component={NewPassword}/>
                   <Route exact path="/React-Shop-Ecomerce/createAccount" component={MyAccount}/>
                   <PrivateRoute path="/React-Shop-Ecomerce/orders">

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 import iconMenu from '../assets/icons/icon_menu.svg'
 import iconShoppingCard from '../assets/icons/icon_shopping_cart.svg'
@@ -7,7 +7,8 @@ import yardSaleLogo from '../assets/logos/logo_yard_sale.svg'
 import { useMenu } from "../hooks/useMenu";
 
 const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, setToggleShopCart, setDesktopMenu, setMobileMenu, user }) => {
-
+  let { url } = useRouteMatch();
+  console.log(url)
   return (
     <>
       <img onClick={handleMenuMobile} src={iconMenu} alt="menu" className="menu" />
@@ -20,19 +21,19 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
             <Link onClick={() => {setDesktopMenu(false)}} to="/">All</Link>
           </li>
           <li>
-            <Link onClick={() => {setDesktopMenu(false)}} to="/React-Shop-Ecomerce/home/clothes">Clothes</Link>
+            <Link onClick={() => {setDesktopMenu(false)}} to="/categories/1">Clothes</Link>
           </li>
           <li>
-            <Link onClick={() => {setDesktopMenu(false)}} to="/React-Shop-Ecomerce/home/electronics">Electronics</Link>
+            <Link onClick={() => {setDesktopMenu(false)}} to="/categories/2">Electronics</Link>
           </li>
           <li>
-            <Link onClick={() => {setDesktopMenu(false)}} to="/React-Shop-Ecomerce/home/fornitures">Furnitures</Link>
+            <Link onClick={() => {setDesktopMenu(false)}} to="/categories/3">Furnitures</Link>
           </li>
           <li>
-            <Link onClick={() => {setDesktopMenu(false)}} to="/React-Shop-Ecomerce/home/toys">Toys</Link>
+            <Link onClick={() => {setDesktopMenu(false)}} to="/categories/4">Toys</Link>
           </li>
           <li>
-            <Link onClick={() => {setDesktopMenu(false)}} to="/React-Shop-Ecomerce/home/others">Others</Link>
+            <Link onClick={() => {setDesktopMenu(false)}} to="/categories/5">Others</Link>
           </li>
         </ul>
       </div>
