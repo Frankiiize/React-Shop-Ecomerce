@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut   } from "firebase/auth";
 
-import { FireApp } from '../hooks/useFireBaseConfig.js'
+import { FireApp } from './useFireBaseConfig.js'
 
 
 function useProvideAuth() {
@@ -10,9 +10,19 @@ function useProvideAuth() {
   
   const auth = getAuth();
 
+  useEffect(() => {
+    const userLog = onAuthStateChanged(auth, (user) => {
+      if(user){
+        const uid = user.uid;
+        setUser(uid)
+      }else {
+        console.log("user signOut")
+      }
+    })
+    userLog()
+  },[])
+
   const signin = (changePath, email, password) => {
-    
-   
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
      
@@ -28,9 +38,14 @@ function useProvideAuth() {
     })
   };
 
-  const signout = changePath => {
-    setUser(null);
-    changePath();
+  const signout = (changePath) => {
+    signOut(auth)
+    .then(() => {
+      setUser(null);
+      changePath();
+    }).catch((error)=> {
+      setError(error)
+    })
 
   };
 

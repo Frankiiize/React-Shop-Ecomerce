@@ -47,7 +47,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
             </li>
             )
           : (
-            <Link to="/login">Sign in</Link>
+            <Link  to="/login">Sign in</Link>
             )
         }
           

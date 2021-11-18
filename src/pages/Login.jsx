@@ -12,11 +12,6 @@ const Login = () => {
   const formulario = useRef(null);
   const regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
-  const login = (ev) => {
-    ev.preventDefault()
-  
-  }
-
   const handleSubmit = (ev) => {
     ev.preventDefault();
     const formData = new FormData(formulario.current);//current para acceder a los datos

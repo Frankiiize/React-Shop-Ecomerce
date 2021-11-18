@@ -15,11 +15,10 @@ const Header = ({children}) => {
   const { mobileMenu, desktopMenu, handleMenuMobile, handleMenuDesktop, setMobileMenu, setDesktopMenu } = useMenu();
   const [toggleShopCart, setToggleShopCart] = React.useState(false);
   const { user, signout } = useContext(authContext);
+ 
   const handleSignOut = () =>{
-  
-    signout(() => {
-      history.push("/");
-    });
+    const changePath = () =>  history.push("/");
+    signout(changePath)
   
   }
   return (

@@ -26,11 +26,18 @@
 }
 .desktop-menu ul li:last-child {
   padding-top: 20px;
+  padding-bottom: 20px;
   border-top: 1px solid var(--very-light-pink);
 }
-.desktop-menu ul li:last-child a {
+.desktop-menu ul li button  {
+  border: none;
   color: var(--hospital-green);
   font-size: var(--sm);
+  background-color: transparent;
+ 
+}
+.desktop-menu ul li button:hover{
+  cursor: pointer;
 }
 .desktop-menu ul li a {
   color: var(--back);

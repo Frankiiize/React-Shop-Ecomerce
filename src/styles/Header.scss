@@ -15,7 +15,7 @@ nav {
   display: none;
 }
 .headerLogo {
-  width: 100px;
+  max-width: 100%;
   display: flex;
 }
 .navbar-left a {
@@ -40,12 +40,15 @@ nav {
   margin-left: 12px;
 }
 .navbar-left ul li a,
+.navbar-right ul a ,
 .navbar-right ul li a {
   text-decoration: none;
   color: var(--very-light-pink);
   border: 1px solid var(--white);
   padding: 8px;
   border-radius: 8px;
+  text-align: end;
+  
 }
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {
@@ -111,4 +114,5 @@ nav {
   .desktop-menu{
     display: none;
   }
+  
 }

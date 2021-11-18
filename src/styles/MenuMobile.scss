@@ -5,9 +5,9 @@
   align-items: center;
   grid-template-columns: 1fr;
   grid-template-rows: 20px auto;
+  align-items: flex-start;
   padding: 24px;
   position: fixed;
-  z-index: 2;
   top: 60px;
   bottom: 0;
   background-color: var(--white);
@@ -17,6 +17,7 @@
 .mobile-menu-closeIcon{
   display: flex;
   justify-content: flex-end;
+  filter: invert(1);
   img{
     padding: 7px;
   }
@@ -48,4 +49,6 @@
 .sign-out {
   font-size: var(--sm);
   color: var(--hospital-green) !important;
+  border: none;
+  background-color: transparent;
 }
