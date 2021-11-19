@@ -38,22 +38,46 @@ const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,ha
       </div>
       <ul>
         <li>
-          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/">All</Link>
+          <Link 
+            onClick={() => {setMobileMenu(false); 
+            setToggleShopCart(false)}} 
+            to="/">All
+          </Link>
         </li>
         <li>
-          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/home/clothes">Clothes</Link>
+          <Link 
+            onClick={() => {setMobileMenu(false); 
+            setToggleShopCart(false)}} 
+            to="/categories/1">Clothes
+          </Link>
         </li>
         <li>
-          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/home/electronics">Electronics</Link>
+          <Link 
+            onClick={() => {setMobileMenu(false); 
+            setToggleShopCart(false)}} 
+            to="/categories/2">Electronics
+          </Link>
         </li>
         <li>
-          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/home/fornitures">Furnitures</Link>
+          <Link 
+            onClick={() => {setMobileMenu(false); 
+            setToggleShopCart(false)}} 
+            to="/categories/13">Furnitures
+          </Link>
         </li>
         <li>
-          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/home/toys">Toys</Link>
+          <Link 
+            onClick={() => {setMobileMenu(false); 
+            setToggleShopCart(false)}} 
+            to="/categories/4">Toys
+          </Link>
         </li>
         <li>
-          <Link onClick={() => {setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce/home/others">Others</Link>
+          <Link 
+            onClick={() => {setMobileMenu(false); 
+            setToggleShopCart(false)}} 
+            to="/categories/5">Others
+          </Link>
         </li>
       </ul>
       {!!user 

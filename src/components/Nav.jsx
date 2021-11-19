@@ -1,14 +1,15 @@
-import React from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink, useRouteMatch } from "react-router-dom";
 
 import iconMenu from '../assets/icons/icon_menu.svg'
 import iconShoppingCard from '../assets/icons/icon_shopping_cart.svg'
 import yardSaleLogo from '../assets/logos/logo_yard_sale.svg'
+import { authContext } from "../context/AuthContext";
 import { useMenu } from "../hooks/useMenu";
 
 const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, setToggleShopCart, setDesktopMenu, setMobileMenu, user }) => {
+  
   let { url } = useRouteMatch();
-  console.log(url)
   return (
     <>
       <img onClick={handleMenuMobile} src={iconMenu} alt="menu" className="menu" />
@@ -18,22 +19,53 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
         </Link>
         <ul>
           <li>
-            <Link onClick={() => {setDesktopMenu(false)}} to="/">All</Link>
+            <NavLink
+              exact
+              activeClassName="isActive"
+              onClick={() => {setDesktopMenu(false)}} 
+              to="/">
+                All
+            </NavLink>
           </li>
           <li>
-            <Link onClick={() => {setDesktopMenu(false)}} to="/categories/1">Clothes</Link>
+            <NavLink  
+              activeClassName="isActive"
+              onClick={() => {setDesktopMenu(false)}} 
+              to="/categories/1">
+                Clothes
+            </NavLink>
           </li>
           <li>
-            <Link onClick={() => {setDesktopMenu(false)}} to="/categories/2">Electronics</Link>
+            <NavLink
+              activeClassName="isActive" 
+              onClick={() => {setDesktopMenu(false)}} 
+              to="/categories/2">
+                Electronics
+            </NavLink>
           </li>
           <li>
-            <Link onClick={() => {setDesktopMenu(false)}} to="/categories/3">Furnitures</Link>
+            <NavLink
+              activeClassName="isActive"
+              onClick={() => {setDesktopMenu(false)}} 
+              to="/categories/3">
+                Furnitures
+            </NavLink>
           </li>
           <li>
-            <Link onClick={() => {setDesktopMenu(false)}} to="/categories/4">Toys</Link>
+            <NavLink 
+              activeClassName="isActive"
+              onClick={() => {setDesktopMenu(false)}} 
+              to="/categories/4">
+                Toys
+            </NavLink>
           </li>
           <li>
-            <Link onClick={() => {setDesktopMenu(false)}} to="/categories/5">Others</Link>
+            <NavLink 
+              activeClassName="isActive"
+              onClick={() => {setDesktopMenu(false)}} 
+              to="/categories/5">
+                Others
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -43,7 +75,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
         {!!user
           ? (
             <li onClick={handleMenuDesktop} className="navbar-email">
-              <p>platzi@example.com</p>
+              <p>{user.email}</p>
               <i className="navbar-email-arrowDown"></i>
             </li>
             )
@@ -52,7 +84,13 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
             )
         }
           
-          <li className="navbar-shopping-cart" onClick={() => {setToggleShopCart(!toggleShopCart); setMobileMenu(false), setDesktopMenu(false)}} >
+          <li 
+            className="navbar-shopping-cart" 
+            onClick={() => {
+              setToggleShopCart(!toggleShopCart); 
+              setMobileMenu(false), setDesktopMenu(false)
+              }}
+          >
             <img src={iconShoppingCard} alt="shopping cart" />
             {cartState.cart.length > 0 
             ? <div>{cartState.cart.length}</div> 

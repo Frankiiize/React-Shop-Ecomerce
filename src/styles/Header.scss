@@ -50,6 +50,7 @@ nav {
   text-align: end;
   
 }
+.navbar-left > ul > li > a.isActive,
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {
   border: 1px solid var(--hospital-green);

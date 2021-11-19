@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const EditAccount = ({handleEdit}) => {
+const EditAccount = ({handleEdit, user}) => {
   return(
     <div className="EditAccount">
     <div className="EditAccount__form-container">
@@ -10,9 +10,9 @@ const EditAccount = ({handleEdit}) => {
       <form action="/" className="EditAccount__form">
         <div>
           <label htmlFor="name" className="EditAccount__form-label">Name</label>
-          <input type="text" id="name" placeholder="Teff" className="EditAccount__form-input input-name"/>
+          <input type="text" id="name" placeholder={!user.displayName ? user.email.split("@")[0]  : user.displayName} className="EditAccount__form-input input-name"/>
 
-          <label htmlFor="email" className="EditAccount__form-label">Email</label>
+          <label htmlFor="email" className="EditAccount__form-label">{user.email}</label>
           <input type="text" id="email" placeholder="platzi@example.com" className="EditAccount__form-input input-email"/>
 
           <label htmlFor="password" className="EditAccount__form-label">Password</label>
