@@ -33,7 +33,7 @@ const App = () => {
             <BrowserRouter>
               <Layaout>
                 <Switch>
-                  <Route exact path="/React-Shop-Ecomerce/" component={Home}/>
+                  <Route exact path="/React-Shop-Ecomerce" component={Home}/>
                   <Route exact path="/login" component={Login}/>
                   <Route path="/categories/:id" >
                     <Categories
