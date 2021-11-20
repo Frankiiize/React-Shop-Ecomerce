@@ -17,7 +17,7 @@ const Header = ({children}) => {
   const { user, signout } = useContext(authContext);
  
   const handleSignOut = () =>{
-    const changePath = () =>  history.push("/");
+    const changePath = () =>  history.push("/React-Shop-Ecomerce");
     signout(changePath)
   
   }

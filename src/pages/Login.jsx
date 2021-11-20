@@ -7,7 +7,7 @@ const Login = () => {
   let { signin, signout, user, error } = useContext(authContext)
   let history = useHistory();
   let location = useLocation()
-  let { from } = location.state || { from: { pathname: "/" } };
+  let { from } = location.state || { from: { pathname: "/React-Shop-Ecomerce" } };
 
   const formulario = useRef(null);
   const regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
@@ -33,7 +33,7 @@ const Login = () => {
     <div className="form-container">
       <img src={logo} alt="logo" className="logo"/>
 
-      <form action="/" className="form" ref={formulario}>
+      <form  className="form" ref={formulario}>
         <label htmlFor="email" className="label">Email address</label>
         <input autoComplete="username" name="email" type="text" id="email" placeholder="platzi@example.cm" className="input input-email"/>
 

@@ -34,8 +34,8 @@ const App = () => {
               <Layaout>
                 <Switch>
                   <Route exact path="/React-Shop-Ecomerce" component={Home}/>
-                  <Route exact path="/login" component={Login}/>
-                  <Route path="/categories/:id" >
+                  <Route exact path="/React-Shop-Ecomerce/login" component={Login}/>
+                  <Route path="/React-Shop-Ecomerce/categories/:id" >
                     <Categories
                     />
                   </Route>  
@@ -47,7 +47,7 @@ const App = () => {
                   <PrivateRoute path="/React-Shop-Ecomerce/myAccount">
                     <MyAccount />
                   </PrivateRoute>
-                  <Route path="*" component={NotFound}/> 
+                  <Route path="/React-Shop-Ecomerce/*" component={NotFound}/> 
                 </Switch>
               </Layaout>
             </BrowserRouter>

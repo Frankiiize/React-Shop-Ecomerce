@@ -14,7 +14,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
     <>
       <img onClick={handleMenuMobile} src={iconMenu} alt="menu" className="menu" />
       <div className="navbar-left">
-        <Link onClick={() => {setDesktopMenu(false); setMobileMenu(false); setToggleShopCart(false)}} to="/">
+        <Link onClick={() => {setDesktopMenu(false); setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce">
           <img src={yardSaleLogo} alt="logo" className="headerLogo" />
         </Link>
         <ul>
@@ -23,7 +23,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
               exact
               activeClassName="isActive"
               onClick={() => {setDesktopMenu(false)}} 
-              to="/">
+              to="/React-Shop-Ecomerce">
                 All
             </NavLink>
           </li>
@@ -31,7 +31,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
             <NavLink  
               activeClassName="isActive"
               onClick={() => {setDesktopMenu(false)}} 
-              to="/categories/1">
+              to="/React-Shop-Ecomerce/categories/1">
                 Clothes
             </NavLink>
           </li>
@@ -39,7 +39,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
             <NavLink
               activeClassName="isActive" 
               onClick={() => {setDesktopMenu(false)}} 
-              to="/categories/2">
+              to="/React-Shop-Ecomerce/categories/2">
                 Electronics
             </NavLink>
           </li>
@@ -47,7 +47,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
             <NavLink
               activeClassName="isActive"
               onClick={() => {setDesktopMenu(false)}} 
-              to="/categories/3">
+              to="/React-Shop-Ecomerce/categories/3">
                 Furnitures
             </NavLink>
           </li>
@@ -55,7 +55,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
             <NavLink 
               activeClassName="isActive"
               onClick={() => {setDesktopMenu(false)}} 
-              to="/categories/4">
+              to="/React-Shop-Ecomerce/categories/4">
                 Toys
             </NavLink>
           </li>
@@ -63,7 +63,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
             <NavLink 
               activeClassName="isActive"
               onClick={() => {setDesktopMenu(false)}} 
-              to="/categories/5">
+              to="/React-Shop-Ecomerce/categories/5">
                 Others
             </NavLink>
           </li>
@@ -80,7 +80,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
             </li>
             )
           : (
-            <Link  to="/login">Sign in</Link>
+            <Link  to="/React-Shop-Ecomerce/login">Sign in</Link>
             )
         }
           

@@ -41,42 +41,42 @@ const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,ha
           <Link 
             onClick={() => {setMobileMenu(false); 
             setToggleShopCart(false)}} 
-            to="/">All
+            to="/React-Shop-Ecomerce">All
           </Link>
         </li>
         <li>
           <Link 
             onClick={() => {setMobileMenu(false); 
             setToggleShopCart(false)}} 
-            to="/categories/1">Clothes
+            to="/React-Shop-Ecomerce/categories/1">Clothes
           </Link>
         </li>
         <li>
           <Link 
             onClick={() => {setMobileMenu(false); 
             setToggleShopCart(false)}} 
-            to="/categories/2">Electronics
+            to="/React-Shop-Ecomerce/categories/2">Electronics
           </Link>
         </li>
         <li>
           <Link 
             onClick={() => {setMobileMenu(false); 
             setToggleShopCart(false)}} 
-            to="/categories/13">Furnitures
+            to="/React-Shop-Ecomerce/categories/13">Furnitures
           </Link>
         </li>
         <li>
           <Link 
             onClick={() => {setMobileMenu(false); 
             setToggleShopCart(false)}} 
-            to="/categories/4">Toys
+            to="/React-Shop-Ecomerce/categories/4">Toys
           </Link>
         </li>
         <li>
           <Link 
             onClick={() => {setMobileMenu(false); 
             setToggleShopCart(false)}} 
-            to="/categories/5">Others
+            to="/React-Shop-Ecomerce/categories/5">Others
           </Link>
         </li>
       </ul>
@@ -92,7 +92,7 @@ const NoUserLogin = ({handleMenuMobile}) => {
   return (
     <ul>
       <li>
-        <Link onClick={handleMenuMobile} to="/login" className="sign-out">
+        <Link onClick={handleMenuMobile} to="/React-Shop-Ecomerce/login" className="sign-out">
           login
         </Link>
       </li>
@@ -114,7 +114,7 @@ const UserLogIn = ({handleSignOut, handleMenuMobile, setMobileMenu, setToggleSho
 
     <ul>
       <li>
-        <a href="/React-Shop-Ecomerce/" className="email">
+        <a href="/React-Shop-Ecomerce" className="email">
           platzi@example.com
         </a>
       </li>
