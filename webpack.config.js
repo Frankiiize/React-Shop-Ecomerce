@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname,'build'),
     filename: 'bundle.js',
     hashFunction: "xxhash64",
-    publicPath: "/",
+    publicPath: "",
   },
   devtool: 'eval-source-map',
   module: {
@@ -59,7 +59,7 @@ module.exports = {
   devServer: {
     static: path.join(__dirname,'dist'),
     compress: true,
-    port: 3005,
+    port: 3006,
     historyApiFallback: true,
   }
  
