@@ -49,13 +49,14 @@ function useProvideAuth() {
 
   };
 
-  const upDateUserProfile = (userName,userPhoto) => {
+  const upDateUserProfile = (userName,userPhoto, handleEdit) => {
     updateProfile(auth.currentUser,{
       displayName: userName,
       photoURL : userPhoto,
     } )
     .then(() => {
       console.log("perfil actualizado");
+      handleEdit();
     })
     .catch((error) => {
       console.log(error)

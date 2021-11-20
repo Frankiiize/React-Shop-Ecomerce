@@ -6,6 +6,9 @@ const InfoAccount = ({handleEdit, user}) => {
     <div className="MyAccount">
     <div className="MyAccount__form-container">
       <h1 className="MyAccount-title">My account</h1>
+      <picture className="EditAccount__photoContainer">
+            <img src={user.photoURL} className="EditAccount__userImg"/>
+      </picture>
 
       <form action="/" className="MyAccount__form">
         <div>
