@@ -62,7 +62,7 @@ const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,ha
           <Link 
             onClick={() => {setMobileMenu(false); 
             setToggleShopCart(false)}} 
-            to="/React-Shop-Ecomerce/categories/13">Furnitures
+            to="/React-Shop-Ecomerce/categories/3">Furnitures
           </Link>
         </li>
         <li>
