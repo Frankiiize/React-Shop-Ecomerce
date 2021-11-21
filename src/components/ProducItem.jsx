@@ -31,6 +31,10 @@ const ProducItem = ({ product }) => {
       dispatch({type: 'REMOVE_FROM_CART', payload: item});
     }
   }
+  const foto = product.images[0].replace(/(640)|(480)/g, "240")
+  
+
+  
   return(
     <>
      {!!toggleProductsDetails && 
@@ -47,11 +51,15 @@ const ProducItem = ({ product }) => {
      </ProductDetails>
      }
     <div className="productItem">
+      <picture>
+        <source media="(min-width: 50em)" sizes="50vw" srcSet={foto}/>
         <img
+        sizes="100vw"
         loading="lazy" 
-        src={product.images[0]} alt={product.title}
+        src={foto} alt={product.title}
         onClick={() => setToggleProductsDetails(!toggleProductsDetails)} 
         />
+      </picture>
         <div className="productItem-info">
           <div>
             <p>{product.cantidad}</p>

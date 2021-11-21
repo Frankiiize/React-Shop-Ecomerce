@@ -15,7 +15,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
       <img onClick={handleMenuMobile} src={iconMenu} alt="menu" className="menu" />
       <div className="navbar-left">
         <Link onClick={() => {setDesktopMenu(false); setMobileMenu(false); setToggleShopCart(false)}} to="/React-Shop-Ecomerce">
-          <img src={yardSaleLogo} alt="logo" className="headerLogo" />
+          <img width="97px" src={yardSaleLogo} alt="logo" className="headerLogo" />
         </Link>
         <ul>
           <li>

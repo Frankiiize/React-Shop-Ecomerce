@@ -1,7 +1,7 @@
 import React from 'react';
 import {IntlProvider} from 'react-intl'
 import '../styles/global.css'
-import { BrowserRouter, Switch, Route} from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
 import { Layaout } from '../containers/Layaout.jsx';
 import { Home,  Categories } from '../pages/Home.jsx';
 import { NotFound } from '../pages/NotFound.jsx';
@@ -25,6 +25,7 @@ const localLanguaje = window.navigator.language.split("-")[0]
 const App = () => {
   const initialState = useInitialState();
   const getProducts = useGetProducts();
+  
 	return (
     <AppContext.Provider value={initialState}>
       <ProductsContext.Provider value={getProducts}>
@@ -33,15 +34,22 @@ const App = () => {
             <BrowserRouter>
               <Layaout>
                 <Switch>
-                  <Route exact path="/React-Shop-Ecomerce" component={Home}/>
+                  <Route exact path="/"  >
+                    <Redirect to="/React-Shop-Ecomerce"/>
+                  </Route>
+                  <Route exact  path="/React-Shop-Ecomerce" component={Home}>
+                   
+                  </Route>
                   <Route exact path="/React-Shop-Ecomerce/login" component={Login}/>
-                  <Route path="/React-Shop-Ecomerce/categories/:id" >
+               
+                  <Route exact  path="/React-Shop-Ecomerce/categories/:id" >
                     <Categories
                     />
+                    
                   </Route>  
                   <Route exact path="/React-Shop-Ecomerce/newPassword" component={NewPassword}/>
                   <Route exact path="/React-Shop-Ecomerce/createAccount" component={MyAccount}/>
-                  <PrivateRoute path="/React-Shop-Ecomerce/orders">
+                  <PrivateRoute exact path="/React-Shop-Ecomerce/orders">
                     <Orders/>
                   </PrivateRoute>
                   <PrivateRoute path="/React-Shop-Ecomerce/myAccount">
