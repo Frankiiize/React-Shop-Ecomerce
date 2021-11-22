@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname,'build'),
     filename: 'bundle.js',
     hashFunction: "xxhash64",
-    publicPath: "/",
+    publicPath: "https://frankiiize.github.io/React-Shop-Ecomerce",
   },
   devtool: 'eval-source-map',
   module: {
