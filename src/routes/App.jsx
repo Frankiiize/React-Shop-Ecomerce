@@ -12,9 +12,8 @@ import { CreateAccount } from '../pages/CreateAccount.jsx';
 import { Orders } from '../pages/Orders.jsx';
 
 import { AppContext }  from '../context/AppContext.js';
-import { ProductsContext } from '../context/ProductContex';
+import { ProductProvider } from '../context/ProductContex';
 import { useInitialState } from '../hooks/useInitialState.js'
-import { useGetProducts } from '../hooks/useGetProducts';
 import { ProviderAuth } from '../context/AuthContext.js';
 import { PrivateRoute } from '../containers/PrivateRoutes.jsx';
 
@@ -24,28 +23,26 @@ const localLanguaje = window.navigator.language.split("-")[0]
 
 const App = () => {
   const initialState = useInitialState();
-  const getProducts = useGetProducts();
   
 	return (
     <AppContext.Provider value={initialState}>
-      <ProductsContext.Provider value={getProducts}>
+      <ProductProvider >
         <IntlProvider locale={localLanguaje}>
           <ProviderAuth>
             <BrowserRouter>
               <Layaout>
                 <Switch>
                   <Route exact path="/"  >
-                    <Redirect to="/React-Shop-Ecomerce"/>
+                    <Redirect to="/React-Shop-Ecomerce/1"/>
                   </Route>
-                  <Route exact  path="/React-Shop-Ecomerce" component={Home}>
-                   
+                  <Route exact  path="/React-Shop-Ecomerce/:pag" >
+                    <Home/>
                   </Route>
+
                   <Route exact path="/React-Shop-Ecomerce/login" component={Login}/>
-               
                   <Route exact  path="/React-Shop-Ecomerce/categories/:id" >
                     <Categories
                     />
-                    
                   </Route>  
                   <Route exact path="/React-Shop-Ecomerce/newPassword" component={NewPassword}/>
                   <Route exact path="/React-Shop-Ecomerce/createAccount" component={MyAccount}/>
@@ -61,7 +58,7 @@ const App = () => {
             </BrowserRouter>
           </ProviderAuth>
         </IntlProvider>
-      </ProductsContext.Provider>
+      </ProductProvider>
     </AppContext.Provider>
 
 	);

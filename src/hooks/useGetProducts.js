@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
-const API = 'https://api.escuelajs.co/api/v1/products?limit=0&offset=0'
 
 const useGetProducts = () => {
+  const [ limit , setLimit ] = useState(50);
+  const [ offset, setOffset ] = useState(0);
+  const API = `https://api.escuelajs.co/api/v1/products?limit=${limit}&offset=${offset}`
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -19,17 +21,23 @@ const useGetProducts = () => {
       }
     }
     fetchProducts();
-  },[]);
+  },[API]);
+
   const filterProducts = products.filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase())
   })
+  
   return {
     products,
     filterProducts,
     error,
     loading,
     search,
-    setSeacrch
+    setSeacrch,
+    setLimit,
+    setOffset,
+    limit,
+    offset
   };
 }
 export { useGetProducts };

@@ -11,15 +11,26 @@ import { useParams, useRouteMatch } from "react-router-dom";
 
 
 const Home = () => {
-  const { filterProducts: products, error, loading,  } = React.useContext(ProductsContext)
+  const { 
+    filterProducts: products, 
+    error, 
+    loading, 
+    setLimit, 
+    setOffset, 
+    limit, 
+    offset  
+  } = React.useContext(ProductsContext)
    return (
     <>
-    
       <MainContainer>
         <ProductList 
           products={products}
           error= {error}
           loading= {loading}
+          setLimit={setLimit}
+          setOffset={setOffset}
+          limit={limit}
+          offset={offset}
         />
       </MainContainer>
     </>
