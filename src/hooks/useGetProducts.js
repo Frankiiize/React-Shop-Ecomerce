@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from "react";
 
 const useGetProducts = () => {
-  const [ limit , setLimit ] = useState(50);
-  const [ offset, setOffset ] = useState(0);
-  const API = `https://api.escuelajs.co/api/v1/products?limit=${limit}&offset=${offset}`
-  const [products, setProducts] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [ search, setSeacrch ] = React.useState('');
+  const [products, setProducts] = useState([]);
+  const [ limit , setLimit ] = useState(50);
+  const [ offset, setOffset ] = useState(0);
+  const [ search, setSeacrch ] = useState('');
+  const [ pageCount, setPageCount] = useState(0)
+  const API = `https://api.escuelajs.co/api/v1/products?limit=${limit}&offset=${offset}`
   useEffect(() => {
     async function fetchProducts () {
       try {

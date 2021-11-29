@@ -20,6 +20,7 @@ const Home = () => {
     limit, 
     offset  
   } = React.useContext(ProductsContext)
+  
    return (
     <>
       <MainContainer>
