@@ -6,33 +6,34 @@ import { ProductsContext } from "../context/ProductContex.js";
 import { MainContainer } from "../containers/MainContainer.jsx";
 import { Login } from "./Login.jsx"
 import { useParams, useRouteMatch } from "react-router-dom";
+import { PaginationBtn } from "../components/PaginationBtn.jsx";
 
 
 
 
 const Home = () => {
-  const { 
-    filterProducts: products, 
-    error, 
-    loading, 
-    setLimit, 
-    setOffset, 
-    limit, 
-    offset  
-  } = React.useContext(ProductsContext)
-  
-   return (
+  const { products, filterProducts, error, search, loading } =
+    React.useContext(ProductsContext);
+  console.log(search.length);
+
+  return (
     <>
       <MainContainer>
-        <ProductList 
-          products={products}
-          error= {error}
-          loading= {loading}
-          setLimit={setLimit}
-          setOffset={setOffset}
-          limit={limit}
-          offset={offset}
-        />
+        <PaginationBtn />
+        {search.length > 0 
+        ? (
+          <ProductList
+            products={filterProducts}
+            error={error}
+            loading={loading}
+          />
+        ) 
+        : (
+          <ProductList 
+            products={products} 
+            error={error} 
+            loading={loading} />
+        )}
       </MainContainer>
     </>
   );

@@ -23,7 +23,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
               exact
               activeClassName="isActive"
               onClick={() => {setDesktopMenu(false)}} 
-              to="/React-Shop-Ecomerce/1">
+              to="/React-Shop-Ecomerce">
                 All
             </NavLink>
           </li>

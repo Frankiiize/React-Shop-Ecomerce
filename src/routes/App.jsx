@@ -35,7 +35,7 @@ const App = () => {
                   <Route exact path="/"  >
                     <Redirect to="/React-Shop-Ecomerce/1"/>
                   </Route>
-                  <Route exact  path="/React-Shop-Ecomerce/:pag" >
+                  <Route exact  path="/React-Shop-Ecomerce/" >
                     <Home/>
                   </Route>
 
