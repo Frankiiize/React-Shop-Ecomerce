@@ -2,7 +2,7 @@ import React, { useContext, useRef } from "react";
 import '../styles/Login.scss'
 import logo from '../assets/logos/logo_yard_sale.svg'
 import {authContext} from '../context/AuthContext.js'
-import { useHistory, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 const Login = () => {
   let { signin, signout, user, error } = useContext(authContext)
   let history = useHistory();
@@ -45,10 +45,10 @@ const Login = () => {
           className="primary-button login-button">
           login
         </button>
-        <a href="/">Forgot my password</a>
+        <Link to="/React-Shop-Ecomerce/recoveryPassword">Forgot my password</Link>
       </form>
 
-      <button className="secondary-button signup-button">Sign up</button>
+      <Link to="/React-Shop-Ecomerce/createAccount" className="secondary-button signup-button">Sign up</Link>
     </div>
     {error && (<p>Error</p>)}
   </div>

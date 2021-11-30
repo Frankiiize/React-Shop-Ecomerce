@@ -17,7 +17,7 @@
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
-  
+  color: var(--black)
 }
 
 body::-webkit-scrollbar {

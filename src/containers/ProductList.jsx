@@ -3,25 +3,18 @@ import '../styles/ProducList.scss';
 import { ErrorState, LoadingState } from "../components/SkeletonLoading.jsx";
 import { ProducItem } from "../components/ProducItem.jsx";
 import { ProductDetails } from "../containers/ProductDetails.jsx";
-import { useHistory } from "react-router-dom";
 
 
 
 
 const ProductList = ({products, error ,loading}) => {
-  const [ toggleProductsDetails, setToggleProductsDetails ] = React.useState(false);
-
- 
- 
-
+  const [ toggleProductsDetails, setToggleProductsDetails ] = useState(false);
   return(
     <>
-
         {toggleProductsDetails && <ProductDetails products={products} />}
         <div className="productList">
         {error && <ErrorState />}
         {loading && new Array(20).fill().map((item, index) => <LoadingState key={`loadingSkeleton-${index}`} />)}
-            
           {products.map((product) =>(
               <ProducItem
               product={product}
@@ -29,14 +22,8 @@ const ProductList = ({products, error ,loading}) => {
               toggleProductsDetails={toggleProductsDetails}
               setToggleProductsDetails={setToggleProductsDetails}
             />
-            
-            
           ))}
-
-        
-
         </div>
-    
     </>
   );
 }

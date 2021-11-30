@@ -8,43 +8,57 @@ const useGetProducts = () => {
   const [ itemsPerPage , setItemsPerPage ] = useState(20);
   const [ offset, setOffset ] = useState(0);
   const [ search, setSeacrch ] = useState('');
+  const [ searchON, setSearchON] = useState(false);
   const [ pageCount, setPageCount] = useState(0);
-  const API = `https://api.escuelajs.co/api/v1/products?limit=${itemsPerPage}&offset=${offset}`;
-  const API2 = `https://api.escuelajs.co/api/v1/products?limit=0&offset=0`;
+  const [numberPage, setNumberPage] = useState(0);
+  const API = `https://api.escuelajs.co/api/v1/products?limit=0&offset=0`;
  
   useEffect(() => {
     async function fetchProducts () {
       try {
         const data = await fetch(API);
-        const data2 = await fetch(API2);
         const res = await data.json();
-        const res2 = await data2.json();
-        res.map((item) => (item.added = false))
-        setProducts(res);
-        setAllProducts(res2);
-        setPageCount(Math.ceil(res2.length / itemsPerPage))
+        res.map((item) => {
+          item.added = false;
+        })
+        setProducts(res.slice((numberPage * itemsPerPage),(offset + itemsPerPage)));
+        setAllProducts(res);
+        setPageCount(Math.ceil(res.length / itemsPerPage));
         setLoading(false);
       }catch (error){
         setError(error);
+        setLoading(false);
       }
     }
     fetchProducts();
-  },[API, API2]);
+  },[offset,numberPage, itemsPerPage]);
   
   const filterProducts = allProducts.filter((product) => {
-    return product.title.toLowerCase().includes(search.toLowerCase())
+    return product.title.toLowerCase().includes(search.toLowerCase());
   })
 
   const handleNextPage = () => {
+    setSeacrch('')
     setOffset(offset + itemsPerPage);
+    setNumberPage(numberPage + 1)
+    setProducts(allProducts.slice((numberPage * itemsPerPage),(offset + itemsPerPage)))
   }
   const handlePreviusPage = () => {
-    setOffset(offset - itemsPerPage)
+    setSeacrch('')
+    setOffset(offset - itemsPerPage);
+    setNumberPage(numberPage - 1)
+    setProducts(allProducts.slice((numberPage * itemsPerPage),(offset + itemsPerPage)))
+
   }
   const handlePageBtn = (index) => {
-    setOffset(index * itemsPerPage)
+    setSeacrch('')
+    setOffset(index * itemsPerPage);
+    setNumberPage(index);
   }
-  
+  const resetPaginated = () => {
+    setNumberPage(0)
+    setOffset(0)
+  }
   return {
     products,
     allProducts,
@@ -58,8 +72,13 @@ const useGetProducts = () => {
     pageCount,
     handleNextPage,
     handlePreviusPage,
-    handlePageBtn
-    
+    handlePageBtn,
+    numberPage,
+    setNumberPage,
+    searchON,
+    setSearchON,
+    setPageCount,
+    resetPaginated
   };
 }
 export { useGetProducts };
