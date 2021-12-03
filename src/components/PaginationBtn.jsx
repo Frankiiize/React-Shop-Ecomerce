@@ -10,8 +10,6 @@ const PaginationBtn = ({
   handleNextPage,
   handlePreviusPage,
   handlePageBtn,}) => {
- console.log(allProducts.length)
- console.log(offset)
   return (
     <div className="paginationContainer">
       <button 
