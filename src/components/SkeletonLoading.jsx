@@ -1,7 +1,8 @@
 import React from "react";
 import '../styles/skeletonLoading.scss'
 
-const  ErrorState = () => {
+const  ErrorState = ({error}) => {
+  console.log( error)
   return (
     <div className="skeletonContainer">
       <p className="skeletonContainer__errorState"> Ocurrio un error </p>

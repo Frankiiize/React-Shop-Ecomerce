@@ -13,7 +13,7 @@ const ProductList = ({products, error ,loading}) => {
     <>
         {toggleProductsDetails && <ProductDetails products={products} />}
         <div className="productList">
-        {error && <ErrorState />}
+        {error && <ErrorState error={error}/>}
         {loading && new Array(20).fill().map((item, index) => <LoadingState key={`loadingSkeleton-${index}`} />)}
           {products.map((product) =>(
               <ProducItem
