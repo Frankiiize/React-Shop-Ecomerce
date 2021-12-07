@@ -16,8 +16,7 @@ const Header = ({children}) => {
   const { mobileMenu, desktopMenu, handleMenuMobile, handleMenuDesktop, setMobileMenu, setDesktopMenu } = useMenu();
   const [toggleShopCart, setToggleShopCart] = React.useState(false);
   const { user, signout } = useContext(authContext);
-  const {  resetPaginated } = useContext(ProductsContext)
- 
+  const { resetPaginated } = useContext(ProductsContext)
   const handleSignOut = () =>{
     const changePath = () =>  history.push("/React-Shop-Ecomerce");
     signout(changePath)

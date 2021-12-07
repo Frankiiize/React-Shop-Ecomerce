@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import '../styles/order.scss';
 import { AppContext  } from '../context/AppContext.js';
 import { OrderItem } from '../components/OrderItem.jsx';
+import { authContext } from '../context/AuthContext';
+import { useHistory } from 'react-router-dom';
 
 
 
 
 const Orders = () => {
   
-  const { buyState } = React.useContext(AppContext);
+  const { buyState } = useContext(AppContext);
  
   const sumaTotal = (arr) => {
     const reducer = (previousValue, currentValue) => previousValue + currentValue.price;
@@ -17,7 +19,6 @@ const Orders = () => {
     return sum;
   }
 
-  const show = true
 	return (
     <>
       <div className="Orders">
