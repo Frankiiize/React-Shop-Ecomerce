@@ -8,7 +8,6 @@ import { useHistory } from "react-router-dom";
 
 
 
-<<<<<<< HEAD
 const ProductList = ({products, error ,loading, setLimit, setOffset, limit, offset}) => {
   const [ toggleProductsDetails, setToggleProductsDetails ] = React.useState(false);
   console.log({limit,offset})
@@ -27,12 +26,6 @@ const ProductList = ({products, error ,loading, setLimit, setOffset, limit, offs
     <>
       <button disabled={offset === 0 ? true: false} onClick={handlePreviusPage}>Back</button>
       <button disabled={offset >= 150 ? true : false} onClick ={handleNextPage}>Next</button>
-=======
-const ProductList = ({products, error ,loading}) => {
-  const [ toggleProductsDetails, setToggleProductsDetails ] = useState(false);
-  return(
-    <>
->>>>>>> dev
         {toggleProductsDetails && <ProductDetails products={products} />}
         <div className="productList">
         {error && <ErrorState error={error}/>}
