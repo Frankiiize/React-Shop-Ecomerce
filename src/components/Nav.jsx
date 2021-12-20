@@ -7,7 +7,6 @@ import yardSaleLogo from '../assets/logos/logo_yard_sale.svg'
 import { ProductsContext } from "../context/ProductContex";
 
 const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, setToggleShopCart, setDesktopMenu, setMobileMenu, user, resetPaginated }) => {
- 
   return (
     <>
       <img onClick={handleMenuMobile} src={iconMenu} alt="menu" className="menu" />
@@ -90,7 +89,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
               }}
           >
             <img src={iconShoppingCard} alt="shopping cart" />
-            {cartState.cart.length > 0 
+            {(!!cartState.cart.length > 0 )
             ? <div>{cartState.cart.length}</div> 
             : <p></p>}
       

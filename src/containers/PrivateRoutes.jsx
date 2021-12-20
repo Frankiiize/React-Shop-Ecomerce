@@ -2,28 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { Route, Redirect, Link, useHistory  } from "react-router-dom";
 import { authContext } from "../context/AuthContext";
 
-/* function PrivateRoute({ children, ...rest }) {
-  const auth = useContext(authContext)
-  console.log(auth)
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-      auth.user 
-        ? (
-          children
-        )
-        : (
-          <div style={{margin: '200px auto'}}>
-            <LoadingState />
-          </div>
-        ) 
-      }
-    />
-  );
-} */
-
-
 function PrivateRoute({ children, ...rest }) {
   const history = useHistory()
     const { user, showChildren } = useContext(authContext);

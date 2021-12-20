@@ -24,8 +24,6 @@ const ProductList = ({products, error ,loading, setLimit, setOffset, limit, offs
 
   return(
     <>
-      <button disabled={offset === 0 ? true: false} onClick={handlePreviusPage}>Back</button>
-      <button disabled={offset >= 150 ? true : false} onClick ={handleNextPage}>Next</button>
         {toggleProductsDetails && <ProductDetails products={products} />}
         <div className="productList">
         {error && <ErrorState error={error}/>}

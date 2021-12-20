@@ -39,7 +39,6 @@ const cartReducer = (state, action)=> {
   }
 }
 const useInitialState = () => {
-
   const { parseItem: parserCart } = useLocalStorage("cart", init(initialState));
   const { parseItem: parserBuy } = useLocalStorage("buy", []);
   const [ cart, dispatch] = React.useReducer(cartReducer, parserCart, init);
