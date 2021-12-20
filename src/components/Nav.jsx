@@ -92,7 +92,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
             <img src={iconShoppingCard} alt="shopping cart" />
             {cartState.cart.length > 0 
             ? <div>{cartState.cart.length}</div> 
-            : null}
+            : <p></p>}
       
           </li>
         </ul>
