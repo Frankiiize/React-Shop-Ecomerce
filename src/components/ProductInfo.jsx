@@ -17,6 +17,7 @@ const style = {
 }
 
 const ProductInfo = ({product, handleCart, idItemsAdded}) => {
+  
 
   return(
     <>
@@ -27,6 +28,7 @@ const ProductInfo = ({product, handleCart, idItemsAdded}) => {
       navigation={true} 
       className="mySwiper">
         {product.images.map((img) => (
+          
           <SwiperSlide key={`${img}-${product.id}`}>
             <img style={style} src={img} alt={product.title}/>
           </SwiperSlide>

@@ -25,7 +25,8 @@ const MenuDesktop = ({setDesktopMenu, handleSignOut}) => {
   );
 }
 
-const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,handleSignOut}) => {
+const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,handleSignOut, resetPaginated}) => {
+  
   return (
     <div className="mobile-menu">
       <div className="mobile-menu-closeIcon">
@@ -39,43 +40,61 @@ const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,ha
       <ul>
         <li>
           <Link 
-            onClick={() => {setMobileMenu(false); 
-            setToggleShopCart(false)}} 
+            onClick={() => {
+              setMobileMenu(false); 
+              setToggleShopCart(false);
+              resetPaginated()
+              }} 
             to="/React-Shop-Ecomerce">All
           </Link>
         </li>
         <li>
           <Link 
-            onClick={() => {setMobileMenu(false); 
-            setToggleShopCart(false)}} 
+            onClick={() => {
+              setMobileMenu(false); 
+              setToggleShopCart(false);
+              resetPaginated();
+              }} 
             to="/React-Shop-Ecomerce/categories/1">Clothes
           </Link>
         </li>
         <li>
           <Link 
-            onClick={() => {setMobileMenu(false); 
-            setToggleShopCart(false)}} 
+            onClick={() => {
+              setMobileMenu(false); 
+              setToggleShopCart(false);
+              resetPaginated();
+              }} 
             to="/React-Shop-Ecomerce/categories/2">Electronics
           </Link>
         </li>
         <li>
           <Link 
-            onClick={() => {setMobileMenu(false); 
-            setToggleShopCart(false)}} 
+            onClick={() => {
+              setMobileMenu(false); 
+              setToggleShopCart(false);
+              resetPaginated();
+              }} 
             to="/React-Shop-Ecomerce/categories/3">Furnitures
           </Link>
         </li>
         <li>
           <Link 
-            onClick={() => {setMobileMenu(false); 
-            setToggleShopCart(false)}} 
+            onClick={() => {
+              setMobileMenu(false); 
+              setToggleShopCart(false);
+              resetPaginated();
+              }} 
             to="/React-Shop-Ecomerce/categories/4">Toys
           </Link>
         </li>
         <li>
           <Link 
-            onClick={() => {setMobileMenu(false); 
-            setToggleShopCart(false)}} 
+            onClick={() => {
+              setMobileMenu(false); 
+              setToggleShopCart(false);
+              resetPaginated();
+              }} 
             to="/React-Shop-Ecomerce/categories/5">Others
           </Link>
         </li>

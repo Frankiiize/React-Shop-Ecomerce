@@ -2,25 +2,29 @@ import React, {useEffect, useState} from "react";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile    } from "firebase/auth";
 
 import { FireApp } from './useFireBaseConfig.js'
+import { useLocation, useHistory } from "react-router-dom";
 
 
 function useProvideAuth() {
-  const [user, setUser] = useState(null);
+  let auth = getAuth()
+  const [user, setUser] = useState();
   const [error, setError] = useState(false);
-  
-  const auth = getAuth();
-
+  const [showChildren, setShowChildren] = useState(false)
+ /*  onAuthStateChanged(auth, (user) => {
+    debugger
+    if(user){
+      const u = user
+      setUser(user)
+    }
+    else{
+      console.log('user singOut')
+    }
+  }) */
   useEffect(() => {
-    const userLog = onAuthStateChanged(auth, (user) => {
-      if(user){
-        const uid = user;
-        setUser(uid)
-      }else {
-        console.log("user signOut")
-      }
+    onAuthStateChanged(auth, (user) => {
+      user ? (setUser(user), setShowChildren(true)) : (setUser(null),console.log('userlogOut'))
     })
-    userLog()
-  },[])
+  })
 
   const signin = (changePath, email, password) => {
     signInWithEmailAndPassword(auth, email, password)
@@ -62,6 +66,7 @@ function useProvideAuth() {
       console.log(error)
     })
   }
+  
 
   return {
     error,
@@ -69,6 +74,7 @@ function useProvideAuth() {
     signin,
     signout,
     upDateUserProfile,
+    showChildren,
   };
 }
 

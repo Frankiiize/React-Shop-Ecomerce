@@ -1,37 +1,46 @@
 import React from "react";
-
 import { ProductList } from "../containers/ProductList.jsx";
-import { useGetProducts } from "../hooks/useGetProducts.js";
 import { ProductsContext } from "../context/ProductContex.js";
 import { MainContainer } from "../containers/MainContainer.jsx";
-import { Login } from "./Login.jsx"
 import { useParams, useRouteMatch } from "react-router-dom";
-
-
-
+import { PaginationBtn } from "../components/PaginationBtn.jsx";
 
 const Home = () => {
   const { 
-    filterProducts: products, 
+    products, 
+    filterProducts, 
     error, 
-    loading, 
-    setLimit, 
-    setOffset, 
-    limit, 
-    offset  
-  } = React.useContext(ProductsContext)
-   return (
+    loading,
+    searchON,
+    allProducts,
+    offset,
+    itemsPerPage,
+    pageCount,
+    handleNextPage,
+    handlePreviusPage,
+    handlePageBtn,
+  } = React.useContext(ProductsContext);
+  return (
     <>
       <MainContainer>
-        <ProductList 
-          products={products}
-          error= {error}
-          loading= {loading}
-          setLimit={setLimit}
-          setOffset={setOffset}
-          limit={limit}
+        <PaginationBtn
+          allProducts={allProducts}
           offset={offset}
+          itemsPerPage={itemsPerPage}
+          pageCount={pageCount}
+          handleNextPage={handleNextPage}
+          handlePreviusPage={handlePreviusPage}
+          handlePageBtn={handlePageBtn}
         />
+        {searchON ? (
+          <ProductList
+            products={filterProducts}
+            error={error}
+            loading={loading}
+          />
+        ) : (
+          <ProductList products={products} error={error} loading={loading} />
+        )}
       </MainContainer>
     </>
   );
@@ -39,19 +48,49 @@ const Home = () => {
 
 const Categories = () => {
   let { id } = useParams();
-  const { filterProducts: products, error, loading,  } = React.useContext(ProductsContext)
-  const categories =  products.filter(p => p.category.id === parseInt(id) )
- 
+  const { 
+    filterProducts,
+    error, 
+    loading, 
+    allProducts,
+    offset,
+    itemsPerPage,
+    numberPage,
+    handleNextPage,
+    handlePreviusPage,
+    handlePageBtn,
+    searchON
+  } = React.useContext(ProductsContext)
+  
+  const categories =  allProducts.filter(p => p.category.id === parseInt(id) )
+  const pages = Math.ceil(categories.length / itemsPerPage)
+  const categoriProduct = categories.slice((numberPage * itemsPerPage),(offset + itemsPerPage))
   return (
     <>
       <MainContainer>
-        <ProductList
-          products={categories}
-          error={error}
-          loading={loading}
+        <PaginationBtn
+          allProducts={categories}
+          offset={offset}
+          itemsPerPage={itemsPerPage}
+          pageCount={pages}
+          handleNextPage={handleNextPage}
+          handlePreviusPage={handlePreviusPage}
+          handlePageBtn={handlePageBtn}
         />
+        {searchON ? (
+          <ProductList
+            products={filterProducts}
+            error={error}
+            loading={loading}
+          />
+        ) : (
+          <ProductList
+            products={categoriProduct}
+            error={error}
+            loading={loading}
+          />
+        )}
       </MainContainer>
-
     </>
   );
 }

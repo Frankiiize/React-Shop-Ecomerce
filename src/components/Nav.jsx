@@ -1,15 +1,13 @@
 import React, { useContext } from "react";
-import { Link, NavLink, useRouteMatch } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import iconMenu from '../assets/icons/icon_menu.svg'
 import iconShoppingCard from '../assets/icons/icon_shopping_cart.svg'
 import yardSaleLogo from '../assets/logos/logo_yard_sale.svg'
-import { authContext } from "../context/AuthContext";
-import { useMenu } from "../hooks/useMenu";
+import { ProductsContext } from "../context/ProductContex";
 
-const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, setToggleShopCart, setDesktopMenu, setMobileMenu, user }) => {
-  
-  let { url } = useRouteMatch();
+const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, setToggleShopCart, setDesktopMenu, setMobileMenu, user, resetPaginated }) => {
+ 
   return (
     <>
       <img onClick={handleMenuMobile} src={iconMenu} alt="menu" className="menu" />
@@ -22,15 +20,15 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
             <NavLink
               exact
               activeClassName="isActive"
-              onClick={() => {setDesktopMenu(false)}} 
-              to="/React-Shop-Ecomerce/1">
+              onClick={() => {setDesktopMenu(false); resetPaginated()}} 
+              to="/React-Shop-Ecomerce">
                 All
             </NavLink>
           </li>
           <li>
             <NavLink  
               activeClassName="isActive"
-              onClick={() => {setDesktopMenu(false)}} 
+              onClick={() => {setDesktopMenu(false); resetPaginated()}} 
               to="/React-Shop-Ecomerce/categories/1">
                 Clothes
             </NavLink>
@@ -38,7 +36,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
           <li>
             <NavLink
               activeClassName="isActive" 
-              onClick={() => {setDesktopMenu(false)}} 
+              onClick={() => {setDesktopMenu(false); resetPaginated()}} 
               to="/React-Shop-Ecomerce/categories/2">
                 Electronics
             </NavLink>
@@ -46,7 +44,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
           <li>
             <NavLink
               activeClassName="isActive"
-              onClick={() => {setDesktopMenu(false)}} 
+              onClick={() => {setDesktopMenu(false); resetPaginated()}} 
               to="/React-Shop-Ecomerce/categories/3">
                 Furnitures
             </NavLink>
@@ -54,7 +52,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
           <li>
             <NavLink 
               activeClassName="isActive"
-              onClick={() => {setDesktopMenu(false)}} 
+              onClick={() => {setDesktopMenu(false); resetPaginated()}} 
               to="/React-Shop-Ecomerce/categories/4">
                 Toys
             </NavLink>
@@ -62,7 +60,7 @@ const Nav = ({cartState, handleMenuMobile, handleMenuDesktop, toggleShopCart, se
           <li>
             <NavLink 
               activeClassName="isActive"
-              onClick={() => {setDesktopMenu(false)}} 
+              onClick={() => {setDesktopMenu(false); resetPaginated()}} 
               to="/React-Shop-Ecomerce/categories/5">
                 Others
             </NavLink>

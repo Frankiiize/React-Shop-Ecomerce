@@ -1,26 +1,46 @@
-import React, { useContext } from "react";
-import { Route, Redirect  } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Route, Redirect, Link, useHistory  } from "react-router-dom";
 import { authContext } from "../context/AuthContext";
 
-function PrivateRoute({ children, ...rest }) {
-  let { user } = useContext(authContext)
+/* function PrivateRoute({ children, ...rest }) {
+  const auth = useContext(authContext)
+  console.log(auth)
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        user ? (
+      auth.user 
+        ? (
           children
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/React-Shop-Ecomerce/login",
-              state: { from: location }
-            }}
-          />
         )
+        : (
+          <div style={{margin: '200px auto'}}>
+            <LoadingState />
+          </div>
+        ) 
       }
     />
   );
+} */
+
+
+function PrivateRoute({ children, ...rest }) {
+  const history = useHistory()
+    const { user, showChildren } = useContext(authContext);
+    return (
+      <Route {...rest} render={() => {
+      if(!!showChildren ){
+        if(user !== null){
+          return children
+        }
+      }
+      else{
+        history.push("/React-Shop-Ecomerce/login")
+       
+      }
+     
+    }} />
+  )
 }
 
 export { PrivateRoute };

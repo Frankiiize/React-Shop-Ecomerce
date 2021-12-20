@@ -5,10 +5,12 @@ import searchIcon from '../assets/icons/Shape.svg'
 
 
 const SearchImput = () => {
-  const { products, error, loading, search, setSeacrch } = React.useContext(ProductsContext)
+  const { search, setSeacrch, setSearchON } = React.useContext(ProductsContext)
 
   const handleSearchValue = (ev) => {
-    setSeacrch(ev.target.value) 
+
+    setSeacrch(ev.target.value);
+    !!ev.target.value ? setSearchON(true) : setSearchON(false);
   }
   return(
     <section className='searchContainer' >

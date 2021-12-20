@@ -7,6 +7,7 @@ import { MyOrderCart } from "../containers/MyOrderCart.jsx";
 import { AppContext }  from '../context/AppContext.js'
 import { authContext } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
+import { ProductsContext } from "../context/ProductContex";
 
 
 const Header = ({children}) => {
@@ -15,7 +16,7 @@ const Header = ({children}) => {
   const { mobileMenu, desktopMenu, handleMenuMobile, handleMenuDesktop, setMobileMenu, setDesktopMenu } = useMenu();
   const [toggleShopCart, setToggleShopCart] = React.useState(false);
   const { user, signout } = useContext(authContext);
- 
+  const { resetPaginated } = useContext(ProductsContext)
   const handleSignOut = () =>{
     const changePath = () =>  history.push("/React-Shop-Ecomerce");
     signout(changePath)
@@ -37,6 +38,7 @@ const Header = ({children}) => {
         setToggleShopCart={setToggleShopCart}
         user={user}
         handleSignOut={handleSignOut}
+        resetPaginated={resetPaginated}
       />
       }
    
@@ -56,6 +58,7 @@ const Header = ({children}) => {
             setDesktopMenu={setDesktopMenu}
             setMobileMenu={setMobileMenu}
             user={user}
+            resetPaginated={resetPaginated}
         />
 
           {children}

@@ -18,7 +18,7 @@ const ProducItem = ({ product }) => {
 
   const idItemsAdded = itemsAddedToCart.map((item) => item.id)
 
-
+  
   const handleCart = (item) => {
     
     if(!item.added ){
@@ -31,7 +31,7 @@ const ProducItem = ({ product }) => {
       dispatch({type: 'REMOVE_FROM_CART', payload: item});
     }
   }
-  const foto = product.images[0].replace(/(640)|(480)/g, "240")
+ const foto = product.images[0].replace(/(640)|(480)/g, "240")
   
 
   

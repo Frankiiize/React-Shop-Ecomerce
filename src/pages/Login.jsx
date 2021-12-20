@@ -1,12 +1,13 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import '../styles/Login.scss'
 import logo from '../assets/logos/logo_yard_sale.svg'
 import {authContext} from '../context/AuthContext.js'
-import { useHistory, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 const Login = () => {
-  let { signin, signout, user, error } = useContext(authContext)
+  
+  let { signin, user, error } = useContext(authContext)
   let history = useHistory();
-  let location = useLocation()
+  let location = useLocation();
   let { from } = location.state || { from: { pathname: "/React-Shop-Ecomerce" } };
 
   const formulario = useRef(null);
@@ -28,6 +29,11 @@ const Login = () => {
       console.log("email invalido");
     }
   }
+  useEffect(() => {
+    if (user) {
+        history.push("/");
+    }
+}, [history, user]);
   return (
     <div className="login-login">
     <div className="form-container">
@@ -45,10 +51,10 @@ const Login = () => {
           className="primary-button login-button">
           login
         </button>
-        <a href="/">Forgot my password</a>
+        <Link to="/React-Shop-Ecomerce/recoveryPassword">Forgot my password</Link>
       </form>
 
-      <button className="secondary-button signup-button">Sign up</button>
+      <Link to="/React-Shop-Ecomerce/createAccount" className="secondary-button signup-button">Sign up</Link>
     </div>
     {error && (<p>Error</p>)}
   </div>
