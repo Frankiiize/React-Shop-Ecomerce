@@ -32,9 +32,7 @@ const App = () => {
             <BrowserRouter>
               <Layaout>
                 <Switch>
-                  <Route exact path="/"  >
-                    <Redirect to="/"/>
-                  </Route>
+               
                   <Route exact  path="/" >
                     <Home/>
                   </Route>
