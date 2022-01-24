@@ -32,7 +32,11 @@ const App = () => {
             <BrowserRouter>
               <Layaout>
                 <Switch>
-                  <Route exact path="/" component={Home} >
+                  <Route exact path="/"  >
+                    <Redirect to="/React-Shop-Ecomerce"/>
+                  </Route>
+                  <Route exact  path="/React-Shop-Ecomerce/" >
+                    <Home/>
                   </Route>
 
                   <Route exact path="/React-Shop-Ecomerce/login" component={Login}/>
