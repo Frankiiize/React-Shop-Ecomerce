@@ -32,8 +32,10 @@ const App = () => {
             <BrowserRouter>
               <Layaout>
                 <Switch>
-               
-                  <Route exact  path="/" >
+                  <Route exact path="/"  >
+                    <Redirect to="/React-Shop-Ecomerce"/>
+                  </Route>
+                  <Route exact  path="/React-Shop-Ecomerce/" >
                     <Home/>
                   </Route>
 
@@ -51,6 +53,7 @@ const App = () => {
                   <PrivateRoute path="/React-Shop-Ecomerce/myAccount">
                     <MyAccount />
                   </PrivateRoute>
+                  <Route path="/React-Shop-Ecomerce/*" component={NotFound}/> 
                   <Route path="/*" component={NotFound}/> 
                 </Switch>
               </Layaout>
