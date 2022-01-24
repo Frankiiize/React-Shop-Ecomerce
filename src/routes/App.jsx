@@ -33,9 +33,9 @@ const App = () => {
               <Layaout>
                 <Switch>
                   <Route exact path="/"  >
-                    <Redirect to="/home"/>
+                    <Redirect to="/"/>
                   </Route>
-                  <Route exact  path="/home" >
+                  <Route exact  path="/" >
                     <Home/>
                   </Route>
 
