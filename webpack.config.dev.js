@@ -4,14 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/index.js',
   output : {
     path: path.resolve(__dirname,'build'),
     filename: 'bundle.js',
     hashFunction: "xxhash64",
     publicPath: '/',
-    clean:true,
   },
   devtool: 'eval-source-map',
   module: {
@@ -57,5 +56,12 @@ module.exports = {
       filename: '[name].css'
     }),
   ],
+  devServer: {
+    static: path.join(__dirname,'dist'),
+    compress: true,
+    port: 3006,
+    historyApiFallback: true,
+    open:true,
+  }
  
 }
