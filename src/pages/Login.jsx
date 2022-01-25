@@ -8,7 +8,7 @@ const Login = () => {
   let { signin, user, error } = useContext(authContext)
   let history = useHistory();
   let location = useLocation();
-  let { from } = location.state || { from: { pathname: "/React-Shop-Ecomerce" } };
+  let { from } = location.state || { from: { pathname: "/" } };
 
   const formulario = useRef(null);
   const regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;

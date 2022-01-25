@@ -10,11 +10,11 @@ const MenuDesktop = ({setDesktopMenu, handleSignOut}) => {
     <div className="desktop-menu">
     <ul>
       <li>
-        <Link onClick={() => setDesktopMenu(false)} to="/React-Shop-Ecomerce/orders" className="desktop-menu-title">My orders</Link>
+        <Link onClick={() => setDesktopMenu(false)} to="/orders" className="desktop-menu-title">My orders</Link>
       </li>
 
       <li>
-        <Link onClick={() => setDesktopMenu(false)} to="/React-Shop-Ecomerce/myAccount">My account</Link>
+        <Link onClick={() => setDesktopMenu(false)} to="/myAccount">My account</Link>
       </li>
 
       <li>
@@ -45,7 +45,7 @@ const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,ha
               setToggleShopCart(false);
               resetPaginated()
               }} 
-            to="/React-Shop-Ecomerce">All
+            to="/">All
           </Link>
         </li>
         <li>
@@ -55,7 +55,7 @@ const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,ha
               setToggleShopCart(false);
               resetPaginated();
               }} 
-            to="/React-Shop-Ecomerce/categories/1">Clothes
+            to="/categories/1">Clothes
           </Link>
         </li>
         <li>
@@ -65,7 +65,7 @@ const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,ha
               setToggleShopCart(false);
               resetPaginated();
               }} 
-            to="/React-Shop-Ecomerce/categories/2">Electronics
+            to="/categories/2">Electronics
           </Link>
         </li>
         <li>
@@ -75,7 +75,7 @@ const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,ha
               setToggleShopCart(false);
               resetPaginated();
               }} 
-            to="/React-Shop-Ecomerce/categories/3">Furnitures
+            to="/categories/3">Furnitures
           </Link>
         </li>
         <li>
@@ -85,7 +85,7 @@ const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,ha
               setToggleShopCart(false);
               resetPaginated();
               }} 
-            to="/React-Shop-Ecomerce/categories/4">Toys
+            to="/categories/4">Toys
           </Link>
         </li>
         <li>
@@ -95,7 +95,7 @@ const MenuMobile = ({handleMenuMobile, user, setMobileMenu, setToggleShopCart,ha
               setToggleShopCart(false);
               resetPaginated();
               }} 
-            to="/React-Shop-Ecomerce/categories/5">Others
+            to="/categories/5">Others
           </Link>
         </li>
       </ul>
@@ -111,7 +111,7 @@ const NoUserLogin = ({handleMenuMobile}) => {
   return (
     <ul>
       <li>
-        <Link onClick={handleMenuMobile} to="/React-Shop-Ecomerce/login" className="sign-out">
+        <Link onClick={handleMenuMobile} to="/login" className="sign-out">
           login
         </Link>
       </li>

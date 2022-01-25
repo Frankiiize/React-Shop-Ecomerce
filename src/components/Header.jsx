@@ -18,7 +18,7 @@ const Header = ({children}) => {
   const { user, signout } = useContext(authContext);
   const { resetPaginated } = useContext(ProductsContext)
   const handleSignOut = () =>{
-    const changePath = () =>  history.push("/React-Shop-Ecomerce");
+    const changePath = () =>  history.push("/");
     signout(changePath)
   
   }

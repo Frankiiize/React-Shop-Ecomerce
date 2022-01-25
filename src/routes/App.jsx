@@ -27,7 +27,6 @@ console.log(localStorage)
 const App = () => {
   const initialState = useInitialState();
   
-  debugger
 	return (
     <AppContext.Provider value={initialState}>
       <ProductProvider >
@@ -36,28 +35,18 @@ const App = () => {
             <BrowserRouter>
               <Layaout>
                 <Switch>
-                  <Route exact path="/"  >
-                    <Redirect to="/React-Shop-Ecomerce"/>
-                  </Route>
-                  <Route exact  path="/React-Shop-Ecomerce/" >
-                    <Home/>
-                  </Route>
-
-                  <Route exact path="/React-Shop-Ecomerce/login" component={Login}/>
-                  <Route exact  path="/React-Shop-Ecomerce/categories/:id" >
-                    <Categories
-                    />
-                  </Route>  
-                  <Route exact path="/React-Shop-Ecomerce/newPassword" component={NewPassword}/>
-                  <Route exact path="/React-Shop-Ecomerce/createAccount" component={CreateAccount}/>
-                  <Route exact path="/React-Shop-Ecomerce/recoveryPassword" component={NewPassword}/>
-                  <PrivateRoute exact path="/React-Shop-Ecomerce/orders">
+                  <Route exact  path="/" component={Home} />
+                  <Route exact path="/login" component={Login}/>
+                  <Route exact  path="/categories/:id" component={Categories}/>
+                  <Route exact path="/newPassword" component={NewPassword}/>
+                  <Route exact path="/createAccount" component={CreateAccount}/>
+                  <Route exact path="/recoveryPassword" component={NewPassword}/>
+                  <PrivateRoute exact path="/orders">
                     <Orders/>
                   </PrivateRoute>
-                  <PrivateRoute path="/React-Shop-Ecomerce/myAccount">
+                  <PrivateRoute path="/myAccount">
                     <MyAccount />
                   </PrivateRoute>
-                  <Route path="/React-Shop-Ecomerce/*" component={NotFound}/> 
                   <Route path="/*" component={NotFound}/> 
                 </Switch>
               </Layaout>
