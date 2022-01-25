@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 import { ProductsContext } from "../context/ProductContex";
 
 
-const Header = ({children}) => {
+const HeaderComponent = ({children}) => {
   const history = useHistory()
   const { cart } = React.useContext(AppContext);
   const { mobileMenu, desktopMenu, handleMenuMobile, handleMenuDesktop, setMobileMenu, setDesktopMenu } = useMenu();
@@ -68,4 +68,8 @@ const Header = ({children}) => {
   );
 };
 
-export { Header }
+export default () => {
+  return(
+    <HeaderComponent />
+  )
+}

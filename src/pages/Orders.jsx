@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 
 
 
-const Orders = () => {
+const OrdersPage = () => {
   
   const { buyState } = useContext(AppContext);
  
@@ -46,4 +46,8 @@ const Orders = () => {
 	);
 }
 
-export {Orders};
+export default () =>{
+  return(
+    <OrdersPage />
+  )
+}

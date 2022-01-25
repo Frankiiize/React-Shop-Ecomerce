@@ -3,7 +3,7 @@ import '../styles/Login.scss'
 import logo from '../assets/logos/logo_yard_sale.svg'
 import {authContext} from '../context/AuthContext.js'
 import { Link, useHistory, useLocation } from "react-router-dom";
-const Login = () => {
+const LoginPage = () => {
   
   let { signin, user, error } = useContext(authContext)
   let history = useHistory();
@@ -51,13 +51,17 @@ const Login = () => {
           className="primary-button login-button">
           login
         </button>
-        <Link to="/React-Shop-Ecomerce/recoveryPassword">Forgot my password</Link>
+        <Link to="/recoveryPassword">Forgot my password</Link>
       </form>
 
-      <Link to="/React-Shop-Ecomerce/createAccount" className="secondary-button signup-button">Sign up</Link>
+      <Link to="/createAccount" className="secondary-button signup-button">Sign up</Link>
     </div>
     {error && (<p>Error</p>)}
   </div>
   );
 }
-export { Login };
+export default () =>{
+  return(
+    <LoginPage />
+  )
+}

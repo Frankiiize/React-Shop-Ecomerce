@@ -3,7 +3,7 @@ import '../styles/CreatePassword.scss';
 
 import logo from '../assets/logos/logo_yard_sale.svg'
 
-const NewPassword = () => {
+const NewPasswordPage = () => {
   return(
     <div className="newPasswordLogin">
     <div className="newPasswordForm-container">
@@ -28,4 +28,8 @@ const NewPassword = () => {
   );
 }
 
-export { NewPassword };
+export default () => {
+  return(
+    <NewPasswordPage />
+  )
+}

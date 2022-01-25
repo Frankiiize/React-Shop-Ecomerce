@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/createAccount.scss'
 
-const CreateAccount = () => {
+const CreateAccountPage = () => {
   return(
     <div className="CreateAccount">
     <div className="CreateAccount-form-container">
@@ -12,7 +12,7 @@ const CreateAccount = () => {
           <label htmlFor="name" className="label">Name</label>
           <input type="text" id="name" placeholder="Teff" className="CreateAccount-input input-name"/>
 
-          <label for="email" className="label">Email</label>
+          <label htmlFor="email" className="label">Email</label>
           <input type="text" id="email" placeholder="platzi@example.com" className="CreateAccount-input input-email"/>
 
           <label htmlFor="password" className="label">Password</label>
@@ -25,4 +25,9 @@ const CreateAccount = () => {
   </div>
   );
 }
-export { CreateAccount };
+
+export default () =>{
+  return(
+    <CreateAccountPage />
+  )
+}

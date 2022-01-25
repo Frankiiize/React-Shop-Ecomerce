@@ -5,7 +5,7 @@ import  background  from "../assets/notFound/circle.png";
 import lapto from "../assets/notFound/laptoldpi.png";
 import shadow from "../assets/notFound/sombra.png"
 
-const NotFound = () => {
+const NotFoundPage = () => {
   return (
     <main>
       <div className="not-Found">
@@ -33,4 +33,8 @@ const NotFound = () => {
   );
 }
 
-export { NotFound };
+export default () => {
+  return(
+    <NotFoundPage />
+  )
+}

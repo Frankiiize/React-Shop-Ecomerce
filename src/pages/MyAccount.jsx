@@ -5,7 +5,7 @@ import '../styles/MyAccount.scss';
 import '../styles/EditAccount.scss';
 import { authContext } from "../context/AuthContext.js";
 
-const MyAccount = () => {
+const MyAccountPage = () => {
   const [showEdit, setShowEdit] = React.useState(true);
   const { user, upDateUserProfile } = useContext(authContext);
   const handleEdit = () => {
@@ -23,4 +23,8 @@ const MyAccount = () => {
   );
 };
 
-export { MyAccount };
+export default () =>{
+  return(
+    <MyAccountPage />
+  )
+}
