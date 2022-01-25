@@ -16,14 +16,18 @@ import { ProductProvider } from '../context/ProductContex';
 import { useInitialState } from '../hooks/useInitialState.js'
 import { ProviderAuth } from '../context/AuthContext.js';
 import { PrivateRoute } from '../containers/PrivateRoutes.jsx';
-
+const initialStateStorage = {
+  cart:[],
+}
 
 const localLanguaje = window.navigator.language.split("-")[0]
-
+localStorage.setItem("cart",JSON.stringify(initialStateStorage))
+console.log(localStorage)
 
 const App = () => {
   const initialState = useInitialState();
   
+  debugger
 	return (
     <AppContext.Provider value={initialState}>
       <ProductProvider >
