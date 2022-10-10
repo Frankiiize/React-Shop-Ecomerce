@@ -2,7 +2,6 @@
 
 
 <!-- TABLE OF CONTENTS -->
-<h1> * UNDER CONSTRUCTION */ </h1>
 <details>
   <summary>Table of Contents</summary>
   <ol>
